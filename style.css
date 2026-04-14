@@ -1046,93 +1046,36 @@ a { text-decoration: none; color: inherit; }
     white-space: nowrap; /* 防止标题在窄屏幕下断开 */
 }
 
-/* =========================================
-   移动端适配 (Responsive Design)
-   ========================================= */
-
-@media (max-width: 1200px) {
-    /* 1. 让容器不再写死宽度，改为自适应 */
-    .container {
-        width: 95%; /* 左右留一点边距 */
-        max-width: 1200px;
-    }
-
-    /* 2. 导航栏处理：允许菜单换行居中 */
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .nav-links a {
-        padding: 10px 15px; /* 缩小间距防止太挤 */
-        font-size: 14px;
-    }
-
-    /* 3. Logo部分处理：防止标题过长溢出 */
-    .logo h2 {
-        font-size: 1.2rem;
-        white-space: normal; /* 允许换行 */
-    }
+/* 卡片内容容器调整为 Flex 布局，方便按钮对齐 */
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 如果卡片高度固定，这可以确保按钮在底部 */
 }
 
-@media (max-width: 768px) {
-    /* 4. 核心：所有网格布局在手机端全部变为单列 */
-    .grid-2-cols, 
-    .grid-3-cols, 
-    .grid-4-cols,
-    .pi-profile,
-    .member-detail-top,
-    .member-detail-bottom,
-    .student-text-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-    }
+/* 按钮基础样式 */
+.card-more {
+    margin-top: 15px;
+    color: #004098; /* 中科大蓝 */
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
 
-    /* 5. 幻灯片高度调整，手机端不需要 400px 那么高 */
-    .hero-carousel {
-        height: 250px;
-        margin-bottom: 40px;
-    }
-    .slide-overlay h2 {
-        font-size: 14px; /* 缩小标题字号 */
-        padding: 10px;
-    }
+.card-more .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
 
-    /* 6. 详情页处理：侧边栏移到上方或者隐藏 */
-    .detail-layout {
-        flex-direction: column;
-    }
-    .sidebar {
-        width: 100%;
-    }
+/* 当鼠标悬停在【整个卡片】上时，按钮的变化 */
+.info-card:hover .card-more {
+    color: #002868; /* 悬停时颜色加深 */
+}
 
-    /* 7. 个人资料页：图片居中 */
-    .pi-profile {
-        text-align: center;
-    }
-    .pi-img {
-        width: 60%;
-        margin: 0 auto;
-    }
-
-    /* 8. 简介区块：图片和文字顺序 */
-    .intro-text {
-        order: 2; /* 文字在下 */
-    }
-    .intro-img-container {
-        order: 1; /* 图片在上 */
-        margin-bottom: 20px;
-    }
-    
-    /* 9. 成果列表：左右布局改为上下 */
-    .news-item {
-        flex-direction: column-reverse; /* 日期放标题上面或下面 */
-        gap: 10px;
-    }
-    .date-box {
-        width: 100%; /* 日期方块横跨全屏 */
-        height: 40px;
-        flex-direction: row;
-        gap: 10px;
-    }
-    .date-box .year { margin-bottom: 0; }
+/* 当鼠标悬停在卡片上时，箭头向右微动，增加指引感 */
+.info-card:hover .card-more .arrow {
+    transform: translateX(5px);
 }
