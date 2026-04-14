@@ -1,0 +1,1047 @@
+/* 全局基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+.mt-20 { margin-top: 20px; }
+.text-center { text-align: center; }
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden { display: none !important; }
+.page-content { min-height: 600px; padding-top: 20px; }
+
+/* 顶部与导航 - 替换为中科大蓝 #004098 */
+/* 新增：专门负责全宽背景的类 */
+.top-bar-bg {
+    background-color: #002868; /* 中科大极深蓝 */
+    width: 100%;
+}
+
+/* 修改：去掉原有背景色，保留内部对齐布局 */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    color: white;
+    padding: 0 20px;
+}
+.navbar {
+    background-color: #004098; /* 中科大官方蓝 */
+}
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+}
+.nav-links a {
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+.nav-links a:hover, .nav-links a.active {
+    background-color: #002d72; /* 选中或悬浮时稍微加深 */
+}
+
+/* 首页大图 */
+.hero-carousel {
+    height: 400px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.slide {
+    width: 100%;
+    height: 100%; /* 继承父容器 .hero-carousel 的 400px 高度 */
+    
+    /* 核心属性：高度固定为 100% (即 400px)，宽度根据比例自动调整 */
+    background-size: auto 100%; 
+    
+    /* 配合以下属性效果最佳 */
+    background-repeat: no-repeat; /* 防止图片在宽度不足时重复出现 */
+    background-position: center;  /* 让图片在水平方向上居中显示 */
+    background-color: #ffffff;    /* 可选：如果图片太窄，给左右两侧留白处加个底色 */
+}
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 64, 152, 0.75); /* 半透明的中科大蓝底色 */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #002868;
+    border-bottom: 2px solid #004098;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 网格布局 */
+.grid-2-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.grid-3-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.grid-4-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* 1. 简介图片 */
+.intro-text p { margin-bottom: 15px; text-align: justify; font-size: 15px; }
+.intro-img { background-size: cover; background-position: center; height: 100%; min-height: 250px;}
+
+/* 2. 研究方向卡片 */
+.info-card {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.info-card:hover { transform: translateY(-5px); }
+.card-img { height: 205px; background-size: cover; background-position: center; }
+.card-content { padding: 20px; }
+.card-content h4 { color: #004098; margin-bottom: 10px; font-size: 18px; }
+.card-content p { font-size: 14px; color: #555; }
+
+/* 3. 团队排版 */
+.team-member .avatar {
+    width: 150px;       
+    height: 200px;      /* 高度大于宽度，形成立式的长方形（类似证件照比例） */
+    border-radius: 6px; /* 去掉之前的 50% 圆角。用 6px 微微有一点圆角，显得现代；如果想要纯直角，改为 0 */
+    background-color: #eef2f8; /* 极浅的蓝灰色，作为无照片时的默认底色 */
+    background-size: cover;
+    background-position: center top; /* 改为 center top，防止长方形裁剪时切掉人物头部 */
+    margin: 0 auto 15px auto;
+    border: 1px solid #dce4f0; /* 将边框也换成相配的浅蓝色 */
+}
+
+/* 4. 论文成果 */
+.bg-light { background-color: #f7f8fa; border-radius: 6px;}
+.paper-card {
+    background: white;
+    border-left: 4px solid #004098; /* 中科大蓝色边框 */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.paper-text h4 { font-size: 16px; margin-bottom: 10px; color: #333;}
+.paper-text .authors { font-size: 14px; margin-bottom: 5px; color: #555;}
+.paper-text .journal { font-size: 14px; color: #888; }
+.more-btn {
+    background-color: #004098;
+    color: white;
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.more-btn:hover { background-color: #002d72; }
+
+/* 5. 招生招聘框 */
+.join-box {
+    background: #f7f8fa;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 4px solid #004098;
+}
+.join-box p { margin-bottom: 10px; font-size: 15px; }
+
+/* 底部 */
+.footer {
+    background: #e9ecef;
+    padding: 30px 0;
+    text-align: center;
+    color: #666;
+    margin-top: 60px;
+}
+
+/* 负责人资料卡片布局容器 */
+.pi-profile {
+    display: grid;
+    /* 你可以在这里调整比例，比如 1对2 或 1对3 */
+    grid-template-columns: 1fr 2fr; 
+    gap: 40px;
+    align-items: start;
+}
+
+/* 负责人照片样式 */
+.pi-img {
+    width: 80%;
+    height: auto;
+    display: block;
+    /* 已移除 border (边界) */
+    border: none; 
+    /* 已移除 box-shadow (阴影) */
+    box-shadow: none; 
+    border-radius: 0px; /* 如果需要直角，设为 0；如果需要圆角，保持 6px */
+}
+
+/* 图片容器：控制它在网格中的位置 */
+.intro-img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 图片居中 */
+    align-items: center;
+}
+
+/* 图片本身：实现自适应且不裁剪 */
+.responsive-img {
+    width: 100%;      /* 宽度随容器自适应 */
+    max-width: 500px; /* 您可以根据需要限制 Logo 的最大显示宽度 */
+    height: auto;     /* 关键：高度自动计算，保持原图比例 */
+    display: block;
+    object-fit: contain; /* 确保在任何情况下都不被裁剪 */
+}
+
+/* 新闻列表基础样式 */
+/* =========================================
+   日历方块新闻布局
+   ========================================= */
+
+.news-item {
+    display: flex;
+    align-items: flex-start; /* 顶部对齐 */
+    gap: 20px;               /* 日期方块与文字的间距 */
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    list-style: none;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+/* 日期正方形格子 */
+.date-box {
+    flex-shrink: 0;          /* 防止方块被压缩 */
+    width: 60px;
+    height: 60px;
+    background-color: #004098; /* 中科大蓝 */
+    color: white;
+    display: flex;
+    flex-direction: column;  /* 上下排列 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;      /* 微圆角 */
+}
+
+.date-box .year {
+    font-size: 18px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.date-box .md {
+    font-size: 18px;
+}
+
+/* 右侧文字区域 */
+.news-text {
+    flex-grow: 1;            /* 占据剩余空间 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 65px;        /* 确保高度与日期方块一致，实现“占两行”的视觉感 */
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: color 0.3s;
+    line-height: 1.4;
+}
+
+.news-title:hover {
+    color: #004098;
+}
+
+.news-desc {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+    line-height: 1.6;
+    /* 限制描述文本行数 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+/* 微型论文卡片样式 */
+.paper-card-mini {
+    background: #ffffff;
+    border-left: 4px solid #004098;
+    padding: 12px 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 15px;
+}
+.paper-card-mini h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.paper-card-mini .journal {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+.mt-10 { margin-top: 10px; }
+
+/* 合作机构容器 */
+.partners-container {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* 轮播图增强样式 */
+.hero-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 隐藏所有幻灯片，通过 JS 控制显示 */
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 淡入动画效果 */
+.fade {
+    animation-name: fadeAnim;
+    animation-duration: 1.5s;
+}
+
+@keyframes fadeAnim {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* 左右切换箭头 */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+/* 底部圆点指示器 */
+.dot-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.dot {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover { background-color: #fff; }
+
+
+
+/* =========================================
+   二级页面详情布局 (侧边栏 + 主内容)
+   ========================================= */
+
+/* 顶部小横幅 */
+.sub-banner {
+    height: 180px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 40px;
+}
+.sub-banner-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 40, 104, 0.8); /* 中科大深蓝半透明 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.sub-banner h2 { font-size: 32px; letter-spacing: 2px; }
+
+/* 左右分栏容器 */
+.detail-layout {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* 左侧边栏 */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+.side-nav {
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.side-nav li {
+    border-bottom: 1px solid #eaeaea;
+}
+.side-nav li:last-child { border-bottom: none; }
+.side-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+.side-nav a:hover, .side-nav a.active {
+    background-color: #004098; /* 选中变为中科大蓝 */
+    color: white;
+    font-weight: bold;
+}
+.side-nav a.back-btn {
+    background-color: #f7f8fa;
+    color: #004098;
+    font-size: 14px;
+    text-align: center;
+}
+.side-nav a.back-btn:hover { background-color: #e2e6eb; }
+
+/* 右侧主内容 */
+.main-panel {
+    flex: 1;
+}
+.breadcrumb {
+    font-size: 14px;
+    color: #666;
+    border-bottom: 2px solid #004098;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.breadcrumb strong { color: #004098; }
+
+/* 项目小卡片 */
+.project-card {
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.p-img {
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+}
+.p-info {
+    padding: 15px;
+}
+.p-info h5 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+    height: 44px; /* 限制标题高度为两行 */
+    overflow: hidden;
+}
+.p-date {
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* 返回链接样式 */
+.back-link {
+    color: #004098;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    transition: color 0.3s;
+}
+.back-link:hover {
+    color: #002868;
+    text-decoration: underline;
+}
+
+/* 详情页标题增强 */
+.detail-section-title {
+    font-size: 22px;
+    color: #004098;
+    border-left: 5px solid #004098;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    margin-top: 50px; /* 增加大区块之间的垂直距离 */
+}
+
+/* 工作简介框 - 在全宽模式下增加内边距 */
+.work-desc {
+    font-size: 15px;
+    color: #555;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    line-height: 1.7;
+    border: 1px solid #eee;
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   现代学术成果列表样式 (Modern Work List)
+   ========================================= */
+.modern-work-list {
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.modern-work-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fbfcfd; /* 极浅的蓝灰色背景 */
+    border: 1px solid #eef2f8;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬浮特效 */
+.modern-work-item:hover {
+    background: #ffffff;
+    border-color: #cddbf0;
+    box-shadow: 0 6px 16px rgba(0, 64, 152, 0.08); /* 中科大蓝的轻微阴影 */
+    transform: translateY(-2px); /* 向上轻微浮起 */
+}
+
+/* 左侧数字徽章 */
+.work-index {
+    font-size: 16px;
+    font-weight: bold;
+    color: #004098;
+    background: #eef2f8;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* 圆形 */
+    flex-shrink: 0;
+}
+
+/* 右侧内容区 */
+.work-details {
+    flex: 1;
+}
+
+.work-title {
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    transition: color 0.3s;
+}
+
+.modern-work-item:hover .work-title {
+    color: #004098; /* 悬浮时标题变蓝 */
+}
+
+.work-authors {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* 底部标签栏 */
+.work-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 期刊/会议高亮底纹 */
+.work-venue {
+    font-size: 12px;
+    font-weight: bold;
+    color: #004098;
+    background: #eef2f8;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* PDF/Code 小按钮 */
+.work-tags .tag {
+    font-size: 12px;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 6px;
+    transition: all 0.2s;
+}
+
+.work-tags .tag:hover {
+    border-color: #004098;
+    color: #ffffff;
+    background: #004098;
+}
+
+/* =========================================
+   优雅的区块分隔线
+   ========================================= */
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #eef2f8; /* 极浅的蓝灰色，非常柔和 */
+    margin: 40px 0; /* 控制线上下的留白距离 */
+}
+
+
+
+
+
+
+
+/* 1. 成员列表卡片升级：淡蓝色长方形 */
+/* =========================================
+   极简主义团队列表 (Minimalist Faculty)
+   ========================================= */
+
+.team-member {
+    background-color: #ffffff; /* 纯白背景 */
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none; /* 彻底去掉边框和背景色 */
+}
+
+/* 悬浮效果：仅让文字变色或图片微调，不改变背景 */
+.team-member:hover h4 {
+    color: #004098;
+    text-decoration: underline; /* 增加点击暗示 */
+}
+
+.team-member:hover img {
+    opacity: 0.9;
+    transform: scale(1.02); /* 图片轻微放大，非常有质感 */
+}
+
+/* 核心：解决“人头显示不全”的照片容器 */
+.avatar-container {
+    width: 100%;
+    height: 240px; /* 增加高度，长方形更显正式 */
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #f9f9f9; /* 仅给图片一个极淡的占位色 */
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    /* 魔法属性：cover 确保填满，top 确保永远从头顶开始显示，不切人头 */
+    object-fit: cover;
+    object-position: top; 
+    transition: all 0.4s ease;
+}
+
+.team-member h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #888; /* 职位用浅灰色，突出姓名 */
+}
+
+
+
+/* 2. 详情页卡片布局 */
+.member-detail-card {
+    background-color: #ffffff; /* 详情页同样采用淡蓝色背景 */
+    padding: 40px;
+    border-radius: 12px;
+    color: #333;
+}
+
+.member-detail-top {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* 左侧照片固定宽度 */
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.detail-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.member-name {
+    font-size: 28px;
+    color: #004098;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #004098;
+    padding-bottom: 10px;
+}
+.member-title {
+    font-size: 16px;
+    color: #666;
+    margin-left: 10px;
+}
+
+.bio-text p {
+    line-height: 1.8;
+    font-size: 15px;
+    text-align: justify;
+}
+
+/* 3. 详情页下方盒子 */
+.member-detail-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-box {
+    background: rgba(255, 255, 255, 0.6); /* 半透明白色背景，更有层次 */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.detail-box h4 {
+    color: #004098;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.detail-box ul {
+    padding-left: 20px;
+}
+.detail-box li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   纯文字版学生名单样式 (Text-only Students)
+   ========================================= */
+
+/* 采用 4 列或 5 列网格，文字版建议 4 列，显得不那么拥挤 */
+.student-text-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.student-text-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #eee; /* 淡淡的边框 */
+    border-left: 4px solid #004098; /* 左侧科大蓝装饰条，增加高级感 */
+    transition: all 0.3s ease;
+}
+
+.student-text-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    background-color: #fbfcfd; /* 鼠标悬浮时极淡的蓝色背景 */
+}
+
+/* 在读学生姓名 */
+.s-name {
+    font-size: 17px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* 学位状态 */
+.s-status {
+    font-size: 14px;
+    color: #004098;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 研究方向 (在读) */
+.s-dir {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 毕业年份 (校友) */
+.s-grad {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+/* 毕业去向 (校友) */
+.s-dest {
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* 年份分隔行容器 */
+.year-header {
+    grid-column: 1 / -1; /* 核心：强制横跨网格的所有列 */
+    display: flex;
+    align-items: center;
+    margin: 40px 0 20px 0; /* 上留白 40px，下留白 20px */
+}
+
+/* 年份文字样式 */
+.year-header span {
+    font-size: 26px;
+    font-weight: bold;
+    color: #004098; /* 中科大蓝 */
+    padding-right: 20px;
+    font-family: "Arial", sans-serif;
+}
+
+/* 文字右侧的横线 */
+.year-header::after {
+    content: "";
+    flex: 1; /* 自动填满剩余空间 */
+    height: 1px;
+    background: linear-gradient(to right, #004098, rgba(0, 64, 152, 0.1)); /* 渐变线，更有高级感 */
+}
+
+/* 适配移动端：如果变成单列，间距缩小一点 */
+@media (max-width: 768px) {
+    .year-header {
+        margin: 30px 0 15px 0;
+    }
+    .year-header span {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================
+   实验室风采样式 (Lab Highlights)
+   ========================================= */
+
+.highlights-container {
+    margin-top: 30px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* 图文之间的间距 */
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0; /* 淡淡的底线区分项目 */
+}
+
+/* 最后一个项目不需要底线 */
+.highlight-item:last-child {
+    border-bottom: none;
+}
+
+/* 图片容器 */
+.highlight-image {
+    flex: 1;
+    max-width: 400px; /* 控制图片最大宽度 */
+}
+
+.highlight-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* 柔和的圆角 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 呼吸感阴影 */
+    transition: transform 0.3s ease;
+}
+
+.highlight-image img:hover {
+    transform: translateY(-5px); /* 悬浮时微动 */
+}
+
+/* 文字内容 */
+.highlight-info {
+    flex: 1.5;
+}
+
+.highlight-info h4 {
+    font-size: 22px;
+    color: #004098; /* 中科大蓝 */
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* 在标题前加一个装饰性的竖线 */
+.highlight-info h4::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 4px;
+    width: 4px;
+    height: 18px;
+    background-color: #004098;
+}
+
+.highlight-info p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* 移动端适配：图片在文字上方 */
+@media (max-width: 768px) {
+    .highlight-item {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .highlight-image {
+        max-width: 100%;
+    }
+}
+
+
+/* 确保有两列网格的定义 */
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* 底部联系方式盒子的特殊样式 */
+.contact-box {
+    background-color: #004098; /* 中科大蓝 */
+    color: white;
+    width: 100%; /* 横跨整行 */
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* 响应式：手机端时，两列自动变一列 */
+@media (max-width: 768px) {
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   校园风光装饰图样式
+   ========================================= */
+.campus-showcase {
+    position: relative;
+    width: 100%;
+    height: 300px; /* 固定一个合适的高度，或者设为 auto */
+    margin-top: 30px;
+    border-radius: 12px; /* 较大的圆角更显现代 */
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* 增加呼吸感的投影 */
+}
+
+.campus-showcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 核心：确保图片填满且不拉伸 */
+    object-position: center; /* 图片重心居中 */
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* 鼠标悬浮时图片轻微放大效果 */
+.campus-showcase:hover img {
+    transform: scale(1.05);
+}
+
+/* 图片右下角的装饰文字（可选） */
+.campus-caption {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.3); /* 半透明遮罩 */
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+}
+
+/* 让 logo 容器内的图片和文字对齐 */
+.logo {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 15px;           /* 校徽和文字的间距 */
+}
+
+/* 校徽图片大小控制 */
+.school-logo {
+    height: 45px;        /* 调整到你觉得合适的高度 */
+    width: auto;
+    display: block;
+}
+
+/* 学校链接文字样式 */
+.ustc-link {
+    color: inherit;      /* 继承 h2 的颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    transition: color 0.3s;
+}
+
+.ustc-link:hover {
+    color: #004098;      /* 鼠标悬停变成中科大蓝 */
+    text-decoration: underline; /* 悬停时显示下划线（可选） */
+}
+
+/* 确保 h2 本身不换行 */
+.logo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    white-space: nowrap; /* 防止标题在窄屏幕下断开 */
+}
