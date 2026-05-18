@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中国科学技术大学 | 多模态智能实验室 (MI Lab)</title>
+    <title>中国科学技术大学 | 多模态具身智能实验室 (MEI-Lab)</title>
+    <meta name="description" content="中国科学技术大学多模态具身智能实验室（MEI-Lab）官网，介绍实验室新闻、研究方向、团队成员、研究成果与招生招聘信息。">
+    <meta name="theme-color" content="#004098">
+    <meta property="og:title" content="中国科学技术大学 | 多模态具身智能实验室 (MEI-Lab)">
+    <meta property="og:description" content="了解中国科学技术大学多模态具身智能实验室的新闻、研究方向、团队成员、研究成果与招生招聘信息。">
+    <meta property="og:type" content="website">
 
     <link rel="icon" href="Images/MI Lab Logo-sub.png" type="image/x-icon">
 
@@ -18,26 +23,26 @@
         <div class="top-bar-bg">
             <div class="top-bar container">
                 <div class="logo">
-                    <a href="https://www.ustc.edu.cn" target="_blank">
+                    <a href="https://www.ustc.edu.cn" target="_blank" rel="noopener noreferrer">
                         <img src="Images/ustclogo.svg" alt="中科大校徽" class="school-logo">
                     </a>
                     
                     <h2>
-                        | 多模态智能实验室 (MI Lab)
+                        | 多模态具身智能实验室 (MEI-Lab)
                     </h2>
                 </div>
             </div>
         </div>
 
-        <nav class="navbar">
+        <nav class="navbar" aria-label="主导航">
             <div class="container nav-links">
-                <a href="#" class="active" onclick="switchPage(event, 'page-home')">首页</a>
-                <a href="#" onclick="switchPage(event, 'page-news')">实验室新闻</a>
-                <a href="#" onclick="switchPage(event, 'page-research')">研究方向</a>
-                <a href="#" onclick="switchPage(event, 'page-team')">研究团队</a>
-                <a href="#" onclick="switchPage(event, 'page-publications')">研究成果</a>
-                <a href="#" onclick="switchPage(event, 'page-highlights')">实验室风采</a>
-                <a href="#" onclick="switchPage(event, 'page-join')">招生招聘</a>
+                <a href="#" class="active" data-page-target="page-home" aria-controls="page-home" onclick="switchPage(event, 'page-home')">首页</a>
+                <a href="#" data-page-target="page-news" aria-controls="page-news" onclick="switchPage(event, 'page-news')">实验室新闻</a>
+                <a href="#" data-page-target="page-research" aria-controls="page-research" onclick="switchPage(event, 'page-research')">研究方向</a>
+                <a href="#" data-page-target="page-team" aria-controls="page-team" onclick="switchPage(event, 'page-team')">研究团队</a>
+                <a href="#" data-page-target="page-publications" aria-controls="page-publications" onclick="switchPage(event, 'page-publications')">研究成果</a>
+                <a href="#" data-page-target="page-highlights" aria-controls="page-highlights" onclick="switchPage(event, 'page-highlights')">实验室风采</a>
+                <a href="#" data-page-target="page-join" aria-controls="page-join" onclick="switchPage(event, 'page-join')">招生招聘</a>
             </div>
         </nav>
     </header>
@@ -69,50 +74,76 @@
                 </div>
             </div>
 
-            <a class="prev" onclick="plusSlides(event, -1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(event, 1)">&#10095;</a>
+            <button type="button" class="prev" onclick="plusSlides(event, -1)" aria-label="上一张">&#10094;</button>
+            <button type="button" class="next" onclick="plusSlides(event, 1)" aria-label="下一张">&#10095;</button>
 
             <div class="dot-container">
-                <span class="dot active" onclick="currentSlide(event, 1)"></span>
-                <span class="dot" onclick="currentSlide(event, 2)"></span>
-                <span class="dot" onclick="currentSlide(event, 3)"></span>
-                <span class="dot" onclick="currentSlide(event, 4)"></span>
+                <button type="button" class="dot active" onclick="currentSlide(event, 1)" aria-label="转到第 1 张"></button>
+                <button type="button" class="dot" onclick="currentSlide(event, 2)" aria-label="转到第 2 张"></button>
+                <button type="button" class="dot" onclick="currentSlide(event, 3)" aria-label="转到第 3 张"></button>
+                <button type="button" class="dot" onclick="currentSlide(event, 4)" aria-label="转到第 4 张"></button>
             </div>
         </section>
 
-        <section class="section container">
-            <div class="grid-2-cols" style="align-items: center;"> <div class="intro-text">
-                    <h3 class="section-title">实验室简介 (About MILab)</h3>
-                    <p>多模态智能实验室 (Lab for Multimodal Intelligence，简称 MI Lab)，由国家杰出青年科学基金获得者查正军教授建立，团队由多位国家级人才等优秀教师和一批优秀学生共同组成。实验室坚持“锐意创新、执着攻关、团结协作”，主要开展多模态智能、视觉感知与认知智能、具身智能等领域的研究，研究方向包括多模态内容理解与生成、复杂媒体内容增强与分析、具身智能感知与交互、神经形态视觉计算。</p>
-                    <p>MI Lab　固定研究人员8人，其中国家杰青1人，优青1人，海外优青1 人，青年长江1人，骨干4人。实验室成员承担国家自然科学基金重点项目、企业联合重点项目、科技创新 2030“新一代人工智能”重大项目等国家级项目20余项。</p>
+        <section class="section container home-intro-section">
+            <div class="grid-2-cols home-intro-grid"> <div class="intro-text">
+                    <h3 class="section-title">实验室简介 (About MEI-Lab)</h3>
+                    <p>多模态具身智能实验室 (Lab for Multimodal Embodied Intelligence，简称 MEI-Lab)，由国家杰出青年科学基金获得者查正军教授建立，团队由多位国家级人才等优秀教师和一批优秀学生共同组成。实验室坚持“锐意创新、执着攻关、团结协作”，主要开展多模态智能、视觉感知与认知智能、具身智能等领域的研究，研究方向包括多模态内容理解与生成、复杂媒体内容增强与分析、具身智能感知与交互、神经形态视觉计算。</p>
+                    <p>MEI-Lab　固定研究人员8人，其中国家杰青1人，优青1人，海外优青1 人，青年长江1人，骨干4人。实验室成员承担国家自然科学基金重点项目、企业联合重点项目、科技创新 2030“新一代人工智能”重大项目等国家级项目20余项。</p>
                 </div>
                 
                 <div class="intro-img-container">
-                    <img src="Images/MI Lab Logo.png" class="responsive-img" alt="MI Lab Logo">
+                    <div class="focus-board">
+                        <p class="focus-eyebrow">Our Focus</p>
+                        <h4 class="focus-title">聚焦多模态理解、感知交互与具身智能</h4>
+                        <p class="focus-subtitle">Multimodal understanding, embodied perception, and intelligent interaction.</p>
+                        <div class="focus-tag-grid">
+                            <a href="#" class="focus-tag-card" data-page-target="page-research-detail-1" aria-controls="page-research-detail-1" onclick="switchPage(event, 'page-research-detail-1')">
+                                <span class="focus-tag-index">01</span>
+                                <h5>多模态理解与生成</h5>
+                                <p>Multimodal Understanding &amp; Generation</p>
+                            </a>
+                            <a href="#" class="focus-tag-card" data-page-target="page-research-detail-2" aria-controls="page-research-detail-2" onclick="switchPage(event, 'page-research-detail-2')">
+                                <span class="focus-tag-index">02</span>
+                                <h5>复杂媒体增强与分析</h5>
+                                <p>Complex Media Enhancement &amp; Analysis</p>
+                            </a>
+                            <a href="#" class="focus-tag-card" data-page-target="page-research-detail-3" aria-controls="page-research-detail-3" onclick="switchPage(event, 'page-research-detail-3')">
+                                <span class="focus-tag-index">03</span>
+                                <h5>具身感知与交互</h5>
+                                <p>Embodied Perception &amp; Interaction</p>
+                            </a>
+                            <a href="#" class="focus-tag-card" data-page-target="page-research-detail-4" aria-controls="page-research-detail-4" onclick="switchPage(event, 'page-research-detail-4')">
+                                <span class="focus-tag-index">04</span>
+                                <h5>神经形态视觉计算</h5>
+                                <p>Neuromorphic Vision Computing</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
 
-        <section class="section container" style="padding-top: 0;">
-            <div class="grid-2-cols">
+        <section class="section container home-dashboard-section" style="padding-top: 0;">
+            <div class="grid-2-cols home-dashboard-grid">
 
                 
-                <div class="news-list-box">
+                <div class="news-list-box dashboard-panel">
                     <div class="section-header">
                         <h3 class="section-title">实验室新闻 (Lab News)</h3>
-                        <a href="#" class="more-btn" onclick="switchPage(event, 'page-news')">更多 +</a>
+                        <a href="#" class="more-btn" data-page-target="page-news" aria-controls="page-news" onclick="switchPage(event, 'page-news')">更多 +</a>
                     </div>
-                    <ul class="text-list" id="home-news-sync">
+                    <ul class="text-list" id="home-news-sync" data-preview-source="#page-news .news-item" data-preview-limit="3">
                         </ul>
                 </div>
 
-                <div class="results-list-box">
+                <div class="results-list-box dashboard-panel">
                     <div class="section-header">
                         <h3 class="section-title">最新成果 (Latest Results)</h3>
-                        <a href="#" class="more-btn" onclick="switchPage(event, 'page-publications')">更多 +</a>
+                        <a href="#" class="more-btn" data-page-target="page-publications" aria-controls="page-publications" onclick="switchPage(event, 'page-publications')">更多 +</a>
                     </div>
-                    <div id="home-results-sync">
+                    <div id="home-results-sync" data-preview-limit="3">
                         </div>
                 </div>
 
@@ -120,7 +151,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section home-partners-section">
             <div class="container">
                 <div class="section-header">
                     <h3 class="section-title">合作机构 (Partners)</h3>
@@ -139,41 +170,7 @@
         <section class="section container page-content">
             <h3 class="section-title">实验室新闻 (Lab News)</h3>
             
-            <div class="news-full-list mt-20">
-                <li class="news-item">
-                    <div class="news-text">
-                        <a href="#" class="news-title" class="more-btn" onclick="switchPage(event, 'page-news')">MILab 团队发布首个百万级 UAV 指代目标定位数据集，相关工作发表于 T-PAMI 期刊</a>
-                        <p class="news-desc">团队在 TPAMI 推出了 SkyFind，这是目前全球规模最大、最具挑战性的无人机指代目标定位数据集，用一百万对“图-文”数据，为无人机装上了真正的“智慧之眼”</p>
-                    </div>
-                    <div class="date-box">
-                        <span class="year">2026</span>
-                        <span class="md">03-31</span>
-                    </div>
-                </li>
-
-                <li class="news-item">
-                    <div class="news-text">
-                        <a href="#" class="news-title" class="more-btn" onclick="switchPage(event, 'page-news')">MILab 团队在 ICLR 2026 和 CVPR 2026 发表多篇高质量论文，2 篇获选 CVPR Highlight 论文</a>
-                        <p class="news-desc">涉及多模态理解生成、神经形态视觉计算、具身智能等方向</p>
-                    </div>
-                    <div class="date-box">
-                        <span class="year">2026</span>
-                        <span class="md">02-20</span>
-                    </div>
-                </li>
-
-                <li class="news-item">
-                    <div class="news-text">
-                        <a href="#" class="news-title" class="more-btn" onclick="switchPage(event, 'page-news')">团队傅雪阳教授获中国图象图形学学会（CSIG）青年科学家奖</a>
-                        <p class="news-desc">11月26日，中国图象图形学学会（CSIG）发布了《2025年度中国图象图形学学会科学技术奖和激励计划评选结果公告》，实验室傅雪阳教授荣获CSIG青年科学家奖。CSIG青年科学家奖旨在表彰在我国图像图形学领域科学研究、技术发明、社会服务等方面取得突出成果和做出重要贡献的青年学者，本年度全国共有7人获评。</p>
-                    </div>
-                    <div class="date-box">
-                        <span class="year">2025</span>
-                        <span class="md">11-26</span>
-                    </div>
-                </li>
-
-                </div>
+            <div class="news-full-list mt-20" id="news-full-list"></div>
         </section>
     </div>
 
@@ -1489,6 +1486,10 @@
     <div id="page-publications" class="page-section hidden">
         <section class="section container page-content bg-light" style="padding: 30px;">
             <h3 class="section-title">研究成果 (Publications)</h3>
+            <div class="featured-publications-block">
+                <h4 class="detail-section-title">精选成果 (Featured Publications)</h4>
+                <div class="grid-2-cols" id="featured-publications-list"></div>
+            </div>
             <div class="grid-2-cols">
 
 
@@ -1498,30 +1499,6 @@
                 <span>2026</span>
                     </div>
                     
-                <div class="paper-card">
-                    <div class="paper-text">
-                        <h4>Bayesian Window Transformer for Image Restoration</h4>
-                        <p class="authors">Jie Xiao, <strong>Xueyang Fu</strong>, Yurui Zhu, <strong>Zheng-Jun Zha</strong>.</p>
-                        <p class="journal"><em>IEEE Trans. Pattern Anal. Mach. Intell.</em>, 2026</p>
-                    </div>
-                </div>
-                
-                <div class="paper-card">
-                    <div class="paper-text">
-                        <h4>Boosting Active Prompt Learning via Discriminative Self-Training Dual-Curriculum Learning</h4>
-                        <p class="authors">Sen Tao, <strong>Jiawei Liu</strong>, Peng Zeng, Yongchao Xu, Bingyu Hu, <strong>Zheng-Jun Zha</strong>.</p>
-                        <p class="journal"><em>Int. J. Comput. Vis.</em>, 2026</p>
-                    </div>
-                </div>
-                
-                <div class="paper-card">
-                    <div class="paper-text">
-                        <h4>CompEvent: Complex-valued Event-RGB Fusion for Low-light Video Enhancement and Deblurring</h4>
-                        <p class="authors">Mingchen Zhong, Xin Lu, Dong Liu, Senyan Xu, Ruixuan Jiang, <strong>Xueyang Fu</strong>, Baocai Yin.</p>
-                        <p class="journal"><em>AAAI</em>, 2026</p>
-                    </div>
-                </div>
-                
                 <div class="paper-card">
                     <div class="paper-text">
                         <h4>E-MaT: Event-oriented Mamba for Egocentric Point Tracking</h4>
@@ -5838,7 +5815,7 @@
 
             <div class="join-box-footer mt-20">
                 <div class="join-box contact-box">
-                    <h3 style="margin-bottom: 15px; color: white;">如何加入 MILab</h3>
+                    <h3 style="margin-bottom: 15px; color: white;">如何加入 MEI-Lab</h3>
                     <div class="contact-content">
                         <div class="contact-text">
                             <p>请将你的个人简历（含专业排名、学术能力、编程能力说明）、成绩单及代表性项目/论文发送至：</p>
@@ -5865,32 +5842,15 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 中国科学技术大学 | 多模态智能实验室 (MILab) 版权所有</p>
+            <p>&copy; 2026 中国科学技术大学 | 多模态具身智能实验室 (MEI-Lab) 版权所有</p>
         </div>
     </footer>
-
-    <script>
-        function switchPage(event, pageId) {
-            event.preventDefault();
-            const allPages = document.querySelectorAll('.page-section');
-            allPages.forEach(page => page.classList.add('hidden'));
-            
-            document.getElementById(pageId).classList.remove('hidden');
-            
-            const allLinks = document.querySelectorAll('.nav-links a');
-            allLinks.forEach(link => link.classList.remove('active'));
-            
-            event.target.classList.add('active');
-        }
-    </script>
 
     <script>
         let slideIndex = 1;
         let slideTimer;
 
         // 初始化轮播
-        showSlides(slideIndex);
-        startTimer();
 
         // 左右切换控制
         function plusSlides(event, n) {
@@ -5930,6 +5890,7 @@
 
         // 自动轮播控制
         function startTimer() {
+            clearInterval(slideTimer);
             slideTimer = setInterval(() => {
                 showSlides(slideIndex += 1);
             }, 10000); // 5秒换一张
@@ -5952,67 +5913,169 @@
 
 
     <script>
+        function syncPageState(activePageId) {
+            const allPages = document.querySelectorAll('.page-section');
+            allPages.forEach(page => {
+                const isActive = page.id === activePageId;
+                page.classList.toggle('hidden', !isActive);
+                page.setAttribute('aria-hidden', String(!isActive));
+            });
+
+            const allLinks = document.querySelectorAll('.nav-links a');
+            allLinks.forEach(link => {
+                const isActive = link.dataset.pageTarget === activePageId;
+                link.classList.toggle('active', Boolean(isActive));
+                if (isActive) {
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
         function switchPage(event, pageId) {
             event.preventDefault();
-            // 1. 隐藏所有页面
-            const allPages = document.querySelectorAll('.page-section');
-            allPages.forEach(page => page.classList.add('hidden'));
-            
-            // 2. 显示目标页面
-            document.getElementById(pageId).classList.remove('hidden');
-            
-            // 3. 只有当点击的是顶部导航栏时，才切换顶部的背景高亮
-            if(event.target.closest('.nav-links')) {
-                const allLinks = document.querySelectorAll('.nav-links a');
-                allLinks.forEach(link => link.classList.remove('active'));
-                event.target.classList.add('active');
-            }
+            syncPageState(pageId);
         }
     </script>
 
 
     <script>
+        const newsData = [
+            {
+                title: "MEI-Lab 团队发布首个百万级 UAV 指代目标定位数据集，相关工作发表于 T-PAMI 期刊",
+                desc: "团队在 TPAMI 推出了 SkyFind，这是目前全球规模最大、最具挑战性的无人机指代目标定位数据集，用一百万对“图-文”数据，为无人机装上了真正的“智慧之眼”",
+                year: "2026",
+                md: "03-31"
+            },
+            {
+                title: "MEI-Lab 团队在 ICLR 2026 和 CVPR 2026 发表多篇高质量论文，2 篇获选 CVPR Highlight 论文",
+                desc: "涉及多模态理解生成、神经形态视觉计算、具身智能等方向",
+                year: "2026",
+                md: "02-20"
+            },
+            {
+                title: "团队傅雪阳教授获中国图象图形学学会（CSIG）青年科学家奖",
+                desc: "11月26日，中国图象图形学学会（CSIG）发布了《2025年度中国图象图形学学会科学技术奖和激励计划评选结果公告》，实验室傅雪阳教授荣获CSIG青年科学家奖。CSIG青年科学家奖旨在表彰在我国图像图形学领域科学研究、技术发明、社会服务等方面取得突出成果和做出重要贡献的青年学者，本年度全国共有7人获评。",
+                year: "2025",
+                md: "11-26"
+            }
+        ];
+
+        const featuredResultsData = [
+            {
+                title: "Bayesian Window Transformer for Image Restoration",
+                authors: "Jie Xiao, <strong>Xueyang Fu</strong>, Yurui Zhu, <strong>Zheng-Jun Zha</strong>.",
+                journalHtml: "<em>IEEE Trans. Pattern Anal. Mach. Intell.</em>, 2026",
+                journal: "IEEE Trans. Pattern Anal. Mach. Intell., 2026"
+            },
+            {
+                title: "Boosting Active Prompt Learning via Discriminative Self-Training Dual-Curriculum Learning",
+                authors: "Sen Tao, <strong>Jiawei Liu</strong>, Peng Zeng, Yongchao Xu, Bingyu Hu, <strong>Zheng-Jun Zha</strong>.",
+                journalHtml: "<em>Int. J. Comput. Vis.</em>, 2026",
+                journal: "Int. J. Comput. Vis., 2026"
+            },
+            {
+                title: "CompEvent: Complex-valued Event-RGB Fusion for Low-light Video Enhancement and Deblurring",
+                authors: "Mingchen Zhong, Xin Lu, Dong Liu, Senyan Xu, Ruixuan Jiang, <strong>Xueyang Fu</strong>, Baocai Yin.",
+                journalHtml: "<em>AAAI</em>, 2026",
+                journal: "AAAI, 2026"
+            }
+        ];
+
+        function renderNewsItem(item) {
+            return `
+                <li class="news-item">
+                    <div class="news-text">
+                        <a href="#" class="news-title" data-page-target="page-news" aria-controls="page-news" onclick="switchPage(event, 'page-news')">${item.title}</a>
+                        <p class="news-desc">${item.desc}</p>
+                    </div>
+                    <div class="date-box">
+                        <span class="year">${item.year}</span>
+                        <span class="md">${item.md}</span>
+                    </div>
+                </li>`;
+        }
+
+        function renderNewsList() {
+            const newsList = document.getElementById('news-full-list');
+            if (!newsList) return;
+
+            newsList.innerHTML = newsData.map(renderNewsItem).join('');
+        }
+
+        function renderPaperPreview(item) {
+            return `
+                <div class="paper-card-mini">
+                    <div class="paper-text">
+                        <h5>${item.title}</h5>
+                        <p class="journal">${item.journal}</p>
+                    </div>
+                </div>`;
+        }
+
+        function renderFeaturedPublicationCard(item) {
+            return `
+                <div class="paper-card">
+                    <div class="paper-text">
+                        <h4>${item.title}</h4>
+                        <p class="authors">${item.authors}</p>
+                        <p class="journal">${item.journalHtml}</p>
+                    </div>
+                </div>`;
+        }
+
+        function renderFeaturedPublicationsList() {
+            const featuredList = document.getElementById('featured-publications-list');
+            if (!featuredList) return;
+
+            featuredList.innerHTML = featuredResultsData
+                .map(renderFeaturedPublicationCard)
+                .join('');
+        }
+
         function updateHomePreviews() {
-            // 1. 同步新闻：从 page-news 抓取前3条记录
-            const fullNewsItems = document.querySelectorAll('#page-news .news-item');
-            const homeNewsContainer = document.getElementById('home-news-sync');
-
-            if (homeNewsContainer && fullNewsItems.length > 0) {
-                homeNewsContainer.innerHTML = ''; // 清空首页旧内容
-                // 循环取前3个
-                for (let i = 0; i < Math.min(3, fullNewsItems.length); i++) {
-                    // 克隆新闻条目并添加到首页
-                    homeNewsContainer.appendChild(fullNewsItems[i].cloneNode(true));
+            const previewConfigs = [
+                {
+                    containerId: 'home-news-sync',
+                    renderItem: item => item.cloneNode(true)
+                },
+                {
+                    containerId: 'home-results-sync',
+                    items: featuredResultsData,
+                    renderItem: item => renderPaperPreview(item)
                 }
-            }
+            ];
 
-            // 2. 同步成果：从 page-publications 抓取前3个 paper-card
-            const fullPaperCards = document.querySelectorAll('#page-publications .paper-card');
-            const homeResultsContainer = document.getElementById('home-results-sync');
+            previewConfigs.forEach(({ containerId, items, renderItem }) => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
 
-            if (homeResultsContainer && fullPaperCards.length > 0) {
-                homeResultsContainer.innerHTML = ''; // 清空首页旧内容
-                for (let i = 0; i < Math.min(3, fullPaperCards.length); i++) {
-                    // 提取详情页的数据
-                    const title = fullPaperCards[i].querySelector('h4').innerText;
-                    const journal = fullPaperCards[i].querySelector('.journal').innerText;
+                const limit = Number(container.dataset.previewLimit || '3');
+                const sourceItems = items ?? document.querySelectorAll(container.dataset.previewSource);
 
-                    // 转换为首页专用的 paper-card-mini 格式并插入
-                    const miniCardHTML = `
-                        <div class="paper-card-mini">
-                            <div class="paper-text">
-                                <h5>${title}</h5>
-                                <p class="journal">${journal}</p>
-                            </div>
-                        </div>`;
-                    homeResultsContainer.innerHTML += miniCardHTML;
-                }
-            }
+                if (!sourceItems.length) return;
+
+                container.innerHTML = '';
+                Array.from(sourceItems)
+                    .slice(0, limit)
+                    .forEach(item => {
+                        const rendered = renderItem(item);
+                        if (typeof rendered === 'string') {
+                            container.insertAdjacentHTML('beforeend', rendered);
+                        } else {
+                            container.appendChild(rendered);
+                        }
+                    });
+            });
         }
 
         // 确保在页面加载完成后执行同步逻辑
         document.addEventListener('DOMContentLoaded', () => {
+            renderNewsList();
+            renderFeaturedPublicationsList();
             updateHomePreviews(); // 执行同步
+            syncPageState('page-home');
             showSlides(slideIndex); // 原有的轮播初始化
             startTimer();           // 原有的计时器
         });
