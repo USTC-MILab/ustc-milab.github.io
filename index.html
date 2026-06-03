@@ -50,24 +50,21 @@
     <div id="page-home" class="page-section">
         <section class="hero-carousel">
 
-            <div class="slide fade" 
-                    style="background-image: url('Images/pami-uav.png'); background-size: auto 100%; background-repeat: no-repeat; background-position: center;" 
+            <div class="slide fade slide-news-uav"
                     onclick="handleSlideClick(event, 'page-news')">
                 <div class="slide-overlay">
                     <h2>团队发布首个百万级 UAV 指代目标定位数据集，相关工作发表于 T-PAMI 期刊</h2>
                 </div>
             </div>
 
-            <div class="slide fade" 
-                style="background-image: url('Images/cvpriclr.png'); background-size: auto 100%; background-repeat: no-repeat; background-position: center;" 
+            <div class="slide fade slide-news-papers"
                 onclick="handleSlideClick(event, 'page-news')">
                 <div class="slide-overlay">
                     <h2>团队在 ICLR 2026 和 CVPR 2026 上发表多篇论文</h2>
                 </div>
             </div>
 
-            <div class="slide fade" 
-                    style="background-image: url('Images/fuxueyang.png'); background-size: auto 100%; background-repeat: no-repeat; background-position: center;" 
+            <div class="slide fade slide-news-award"
                     onclick="handleSlideClick(event, 'page-news')">
                 <div class="slide-overlay">
                     <h2>团队傅雪阳教授获中国图象图形学学会（CSIG）青年科学家奖</h2>
@@ -87,13 +84,14 @@
 
         <section class="section container home-intro-section">
             <div class="grid-2-cols home-intro-grid"> <div class="intro-text">
-                    <h3 class="section-title">实验室简介 (About MEI-Lab)</h3>
+                    <h3 class="section-title">实验室简介 <span class="section-title-en">About MEI-Lab</span></h3>
                     <p>多模态具身智能实验室 (Lab for Multimodal Embodied Intelligence，简称 MEI-Lab)，由国家杰出青年科学基金获得者查正军教授建立，团队由多位国家级人才等优秀教师和一批优秀学生共同组成。实验室坚持“锐意创新、执着攻关、团结协作”，主要开展多模态智能、视觉感知与认知智能、具身智能等领域的研究，研究方向包括多模态内容理解与生成、复杂媒体内容增强与分析、具身智能感知与交互、神经形态视觉计算。</p>
                     <p>MEI-Lab　固定研究人员8人，其中国家杰青1人，优青1人，海外优青1 人，青年长江1人，骨干4人。实验室成员承担国家自然科学基金重点项目、企业联合重点项目、科技创新 2030“新一代人工智能”重大项目等国家级项目20余项。</p>
                 </div>
                 
                 <div class="intro-img-container">
-                    <div class="focus-board">
+                    <div class="focus-board logo-board">
+                        <img src="Images/MI Lab Logo-sub.png" alt="多模态具身智能实验室 Logo" class="home-lab-logo">
                         <p class="focus-eyebrow">Research Focus</p>
                         <h4 class="focus-title">研究方向</h4>
                         <p class="focus-summary">围绕多模态理解、复杂媒体分析、具身感知交互与神经形态视觉计算开展研究。</p>
@@ -121,13 +119,13 @@
         </section>
 
 
-        <section class="section container home-dashboard-section" style="padding-top: 0;">
+        <section class="section container home-dashboard-section">
             <div class="grid-2-cols home-dashboard-grid">
 
                 
                 <div class="news-list-box dashboard-panel">
                     <div class="section-header">
-                        <h3 class="section-title">实验室新闻 (Lab News)</h3>
+                        <h3 class="section-title">实验室新闻 <span class="section-title-en">Lab News</span></h3>
                         <a href="#" class="more-btn" data-page-target="page-news" aria-controls="page-news" onclick="switchPage(event, 'page-news')">更多 +</a>
                     </div>
                     <ul class="text-list" id="home-news-sync" data-preview-source="#page-news .news-item" data-preview-limit="3">
@@ -136,7 +134,7 @@
 
                 <div class="results-list-box dashboard-panel">
                     <div class="section-header">
-                        <h3 class="section-title">最新成果 (Latest Results)</h3>
+                        <h3 class="section-title">最新成果 <span class="section-title-en">Latest Results</span></h3>
                         <a href="#" class="more-btn" data-page-target="page-publications" aria-controls="page-publications" onclick="switchPage(event, 'page-publications')">更多 +</a>
                     </div>
                     <div id="home-results-sync" data-preview-limit="3">
@@ -150,10 +148,10 @@
         <section class="section home-partners-section">
             <div class="container">
                 <div class="section-header">
-                    <h3 class="section-title">合作机构 (Partners)</h3>
+                    <h3 class="section-title">合作机构 <span class="section-title-en">Partners</span></h3>
                 </div>
                 <div class="partners-container">
-                    <img src="Images/hezuo.png" class="responsive-img" alt="合作机构展示图" style="max-width: 1200px; margin: 0 auto; display: block;">
+                    <img src="Images/hezuo.png" class="responsive-img partners-logo" alt="合作机构展示图">
                 </div>
             </div>
         </section>
@@ -164,7 +162,7 @@
 
     <div id="page-news" class="page-section hidden">
         <section class="section container page-content">
-            <h3 class="section-title">实验室新闻 (Lab News)</h3>
+            <h3 class="section-title">实验室新闻 <span class="section-title-en">Lab News</span></h3>
             
             <div class="news-full-list mt-20" id="news-full-list"></div>
         </section>
@@ -173,12 +171,12 @@
 
     <div id="page-research" class="page-section hidden">
         <section class="section container page-content">
-            <h3 class="section-title">核心研究方向 (Research Areas)</h3>
+            <h3 class="section-title">核心研究方向 <span class="section-title-en">Research Areas</span></h3>
             
             <div class="grid-2-cols mt-20">
 
-                <div class="info-card" style="cursor: pointer;" onclick="switchPage(event, 'page-research-detail-1')">
-                    <div class="card-img" style="background-image: url('Images/MM.png')"></div>
+                <div class="info-card clickable-card" onclick="switchPage(event, 'page-research-detail-1')">
+                    <div class="card-img research-img-mm"></div>
                     <div class="card-content">
                         <h4>多模态内容理解与生成</h4>
                         <p>本方向致力于打破文本、图像、音视频等异构数据间的壁垒，探索跨模态表征学习与统一建模的新范式。我们通过研究视觉-语言预训练、多模态语义对齐及跨模态推理技术，实现对复杂信息的深度挖掘与精准认知。同时，结合生成式AI，探索从高维语义到高保真内容的转化路径，赋能智能创作、多模态检索及人机交互等应用，构建理解与创作兼备的智能系统。</p>
@@ -189,8 +187,8 @@
                     </div>
                 </div>
 
-                <div class="info-card" style="cursor: pointer;" onclick="switchPage(event, 'page-research-detail-2')">
-                    <div class="card-img" style="background-image: url('Images/Lowlevel.png')"></div>
+                <div class="info-card clickable-card" onclick="switchPage(event, 'page-research-detail-2')">
+                    <div class="card-img research-img-lowlevel"></div>
                     <div class="card-content">
                         <h4>复杂媒体内容分析与增强</h4>
                         <p>针对现实场景中媒体数据的多样性与不确定性，本方向重点攻克非受限环境下的内容解析与质量优化难题。研究涵盖视频/图象目标检测、场景解析等核心分析任务，并进一步延伸至超分辨率重建、图像去噪/去雾及画质修复等增强技术。我们旨在通过算法创新提升视觉感知的鲁棒性，将低质、碎片化的原始数据转化为高质量、可理解的结构化信息，服务于智慧安防、超高清影视及医学成像等领域。</p>
@@ -201,8 +199,8 @@
                     </div>
                 </div>
 
-                <div class="info-card" style="cursor: pointer;" onclick="switchPage(event, 'page-research-detail-3')">
-                    <div class="card-img" style="background-image: url('Images/Embodied.png')"></div>
+                <div class="info-card clickable-card" onclick="switchPage(event, 'page-research-detail-3')">
+                    <div class="card-img research-img-embodied"></div>
                     <div class="card-content">
                         <h4>具身智能感知与交互</h4>
                         <p>本方向致力于推动人工智能突破2D感知限制、走向3D物理世界，将“空间智能”作为实现“会行动”AI的核心路径 。我们以具身交互为机制，构建连接认知、感知与行为的“语义-空间-动作”交互闭环，系统性地解决“理解（What）、推理（Where）、生成（How）”三大核心挑战，赋予智能体在真实物理环境中自主进化并完成精准感知、推理、规划与交互的能力。</p>
@@ -213,8 +211,8 @@
                     </div>
                 </div>
 
-                <div class="info-card" style="cursor: pointer;" onclick="switchPage(event, 'page-research-detail-4')">
-                    <div class="card-img" style="background-image: url('Images/Events.png')"></div>
+                <div class="info-card clickable-card" onclick="switchPage(event, 'page-research-detail-4')">
+                    <div class="card-img research-img-events"></div>
                     <div class="card-content">
                         <h4>神经形态视觉计算</h4>
                         <p>借鉴生物视觉系统的低功耗、高效率特性，本方向探索类脑启发的视觉信息处理新模式。我们重点围绕事件相机（Event-based Camera）等新型传感器开展研究，涵盖神经形态数据表示、脉冲神经网络（SNN）算法及异构计算架构。通过模拟生物视网膜的高动态范围与异步触发机制，力求解决传统框架在极速运动、极端光照及资源受限环境下的视觉挑战，为未来边缘侧智能与超高速机器视觉提供底层理论与技术支撑。</p>
@@ -769,7 +767,7 @@
 
     <div id="page-team" class="page-section hidden">
         <section class="section container page-content">
-            <h3 class="section-title">实验室负责人 (Director)</h3>
+            <h3 class="section-title">实验室负责人 <span class="section-title-en">Director</span></h3>
 
             <div class="pi-profile grid-2-cols mt-20"style="grid-template-columns: 1fr 3fr; gap: 30px;">
                 <div class="pi-photo-container">
@@ -784,7 +782,7 @@
             </div>
 
 
-            <h3 class="section-title" style="margin-top: 40px;">核心骨干 (Team Members)</h3>
+            <h3 class="section-title" style="margin-top: 40px;">核心骨干 <span class="section-title-en">Team Members</span></h3>
             <div class="grid-4-cols mt-20 text-center">
                 <div class="team-member" onclick="switchPage(event, 'member-chenxuejin')">
                     <div class="avatar" style="background-image: url('Images/chenxuejin.png')"></div>
@@ -824,7 +822,7 @@
             </div>
 
 
-            <h3 class="section-title" style="margin-top: 60px;">在读学生 (Current Students)</h3>
+            <h3 class="section-title" style="margin-top: 60px;">在读学生 <span class="section-title-en">Current Students</span></h3>
             <div class="student-text-grid mt-20">    
                 <div class="student-text-item">
                     <h4 class="s-name">朱佳莹</h4>
@@ -1480,12 +1478,8 @@
 
 
     <div id="page-publications" class="page-section hidden">
-        <section class="section container page-content bg-light" style="padding: 30px;">
-            <h3 class="section-title">研究成果 (Publications)</h3>
-            <div class="featured-publications-block">
-                <h4 class="detail-section-title">精选成果 (Featured Publications)</h4>
-                <div class="grid-2-cols" id="featured-publications-list"></div>
-            </div>
+        <section class="section container page-content bg-light publications-page">
+            <h3 class="section-title">研究成果 <span class="section-title-en">Publications</span></h3>
             <div class="grid-2-cols">
 
 
@@ -5734,7 +5728,7 @@
 
     <div id="page-highlights" class="page-section hidden">
         <section class="section container page-content">
-            <h3 class="section-title">实验室风采</h3>
+            <h3 class="section-title">实验室风采 <span class="section-title-en">Lab Spotlight</span></h3>
             
             <div class="highlights-container">
                 <div class="highlight-item">
@@ -5794,16 +5788,16 @@
 
     <div id="page-join" class="page-section hidden">
         <section class="section container page-content">
-            <h3 class="section-title">加入我们 (Join Us)</h3>
+            <h3 class="section-title">加入我们 <span class="section-title-en">Join Us</span></h3>
             
             <div class="grid-2-cols mt-20">
                 <div class="join-box">
-                    <h3 style="color: #004098; margin-bottom: 15px;">博士后 / 青年研究员</h3>
+                    <h3 class="join-card-title">博士后 / 青年研究员</h3>
                     <p><strong>岗位要求：</strong>在计算机视觉、自然语言处理或机器学习领域取得博士学位，并在顶级会议发表过高质量论文。</p>
                     <p><strong>福利待遇：</strong>提供极具竞争力的薪酬，充足的算力支持，优先推荐申请中科大各类人才计划。</p>
                 </div>
                 <div class="join-box">
-                    <h3 style="color: #004098; margin-bottom: 15px;">硕/博士研究生招生</h3>
+                    <h3 class="join-card-title">硕/博士研究生招生</h3>
                     <p><strong>招生名额：</strong>每年招收多名硕士生与博士生。</p>
                     <p><strong>希望你具备：</strong>扎实的数学与编程基础，自我驱动力强，对探索 AGI 充满热情。欢迎相关背景同学报考。</p>
                 </div>
@@ -5811,12 +5805,12 @@
 
             <div class="join-box-footer mt-20">
                 <div class="join-box contact-box">
-                    <h3 style="margin-bottom: 15px; color: white;">如何加入 MEI-Lab</h3>
+                    <h3 class="contact-title">如何加入 MEI-Lab</h3>
                     <div class="contact-content">
                         <div class="contact-text">
                             <p>请将你的个人简历（含专业排名、学术能力、编程能力说明）、成绩单及代表性项目/论文发送至：</p>
-                            <p style="margin-top: 10px; font-size: 20px;"><strong>wzhai056@ustc.edu.cn</strong></p>
-                            <p style="margin-top: 10px; opacity: 0.9;">邮件标题请采用：“姓名-本科学校-申请年份硕士/博士”。</p>
+                            <p class="contact-email"><strong>wzhai056@ustc.edu.cn</strong></p>
+                            <p class="contact-note">邮件标题请采用：“姓名-本科学校-申请年份硕士/博士”。</p>
                         </div>
                         </div>
                 </div>
@@ -5837,7 +5831,14 @@
 
 
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="Images/MI Lab Logo-sub.png" alt="MEI-Lab 标识" class="footer-lab-logo">
+                <div class="footer-brand-copy">
+                    <strong>多模态具身智能实验室</strong>
+                    <span>Lab for Multimodal Embodied Intelligence</span>
+                </div>
+            </div>
             <p>&copy; 2026 中国科学技术大学 | 多模态具身智能实验室 (MEI-Lab) 版权所有</p>
         </div>
     </footer>
