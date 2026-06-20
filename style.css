@@ -1184,6 +1184,23 @@ a { text-decoration: none; color: inherit; }
     line-height: 1.4;
 }
 
+.alumni-simple-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 24px;
+    padding: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
+.alumni-simple-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 /* 年份分隔行容器 */
 .year-header {
     grid-column: 1 / -1; /* 核心：强制横跨网格的所有列 */
@@ -1427,6 +1444,11 @@ a { text-decoration: none; color: inherit; }
     .student-text-grid {
         grid-template-columns: 1fr;
         gap: 14px;
+    }
+
+    .alumni-simple-list {
+        grid-template-columns: 1fr;
+        gap: 6px;
     }
 
     .card-img {
