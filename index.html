@@ -10,7 +10,7 @@
     <meta property="og:description" content="了解中国科学技术大学多模态具身智能实验室的新闻、研究方向、团队成员、研究成果与招生招聘信息。">
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="Images/MI Lab Logo-sub.png" type="image/x-icon">
+    <link rel="icon" href="Images/MEI Lab Logo.png" type="image/x-icon">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -48,7 +48,7 @@
     </header>
 
     <div id="page-home" class="page-section">
-        <section class="hero-carousel">
+        <section class="hero-carousel" id="home-news-carousel">
 
             <div class="slide fade slide-news-uav"
                     onclick="handleSlideClick(event, 'page-news')">
@@ -91,7 +91,7 @@
                 
                 <div class="intro-img-container">
                     <div class="focus-board logo-board">
-                        <img src="Images/MI Lab Logo-sub.png" alt="多模态具身智能实验室 Logo" class="home-lab-logo">
+                        <img src="Images/MEI Lab Logo.png" alt="多模态具身智能实验室 Logo" class="home-lab-logo">
                         <p class="focus-eyebrow">Research Focus</p>
                         <h4 class="focus-title">研究方向</h4>
                         <p class="focus-summary">围绕多模态理解、复杂媒体分析、具身感知交互与神经形态视觉计算开展研究。</p>
@@ -1167,19 +1167,17 @@
                 </div>
             </div>
 
-            <!-- <h3 class="section-title" style="margin-top: 60px;">毕业学生 (Graduated Students)</h3>
-            <div class="student-text-grid mt-20">
-                <div class="student-text-item">
-                    <h4 class="s-name">校友姓名</h4>
-                    <p class="s-grad">2024届 博士毕业</p>
-                    <p class="s-dest">去向：中国科学技术大学 (博士后)</p>
-                </div>
-                <div class="student-text-item">
-                    <h4 class="s-name">校友姓名</h4>
-                    <p class="s-grad">2023届 硕士毕业</p>
-                    <p class="s-dest">去向：华为技术有限公司 (天才少年)</p>
-                </div>
-            </div> -->
+            <h3 class="section-title" style="margin-top: 60px;">毕业学生 <span class="section-title-en">Alumni</span></h3>
+            <ul class="alumni-simple-list mt-20">
+                <li>张三（中国科学技术大学博士后）</li>
+                <li>李四（华为技术有限公司）</li>
+                <li>王五（腾讯 AI Lab）</li>
+                <li>赵六（阿里巴巴达摩院）</li>
+                <li>陈七（字节跳动）</li>
+                <li>刘八（清华大学博士后）</li>
+                <li>周九（中国科学院自动化研究所）</li>
+                <li>吴十（上海人工智能实验室）</li>
+            </ul>
             
 
             
@@ -5833,7 +5831,7 @@
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-brand">
-                <img src="Images/MI Lab Logo-sub.png" alt="MEI-Lab 标识" class="footer-lab-logo">
+                <img src="Images/MEI Lab Logo.png" alt="MEI-Lab 标识" class="footer-lab-logo">
                 <div class="footer-brand-copy">
                     <strong>多模态具身智能实验室</strong>
                     <span>Lab for Multimodal Embodied Intelligence</span>
@@ -5937,6 +5935,8 @@
     </script>
 
 
+    <script src="news-data.js"></script>
+
     <script>
         const newsData = [
             {
@@ -5980,6 +5980,10 @@
             }
         ];
 
+        function getNewsItems() {
+            return window.MEILAB_NEWS || newsData || [];
+        }
+
         function renderNewsItem(item) {
             return `
                 <li class="news-item">
@@ -5998,7 +6002,36 @@
             const newsList = document.getElementById('news-full-list');
             if (!newsList) return;
 
-            newsList.innerHTML = newsData.map(renderNewsItem).join('');
+            newsList.innerHTML = getNewsItems().map(renderNewsItem).join('');
+        }
+
+        function renderHomeCarousel() {
+            const carousel = document.getElementById('home-news-carousel');
+            if (!carousel) return;
+
+            carousel.querySelectorAll('.slide').forEach(slide => slide.remove());
+            const nextButton = carousel.querySelector('.next');
+            const newsItems = getNewsItems().filter(item => item.image).slice(0, 4);
+            slideIndex = 1;
+
+            newsItems.forEach(item => {
+                const slide = document.createElement('div');
+                slide.className = 'slide fade';
+                slide.style.backgroundImage = `url('${item.image}')`;
+                slide.onclick = event => handleSlideClick(event, item.target || 'page-news');
+                slide.innerHTML = `
+                    <div class="slide-overlay">
+                        <h2>${item.slideTitle || item.title}</h2>
+                    </div>`;
+                carousel.insertBefore(slide, nextButton);
+            });
+
+            const dotContainer = carousel.querySelector('.dot-container');
+            if (dotContainer) {
+                dotContainer.innerHTML = newsItems
+                    .map((_, index) => `<button type="button" class="dot" onclick="currentSlide(event, ${index + 1})" aria-label="第${index + 1}张"></button>`)
+                    .join('');
+            }
         }
 
         function renderPaperPreview(item) {
@@ -6035,7 +6068,8 @@
             const previewConfigs = [
                 {
                     containerId: 'home-news-sync',
-                    renderItem: item => item.cloneNode(true)
+                    items: getNewsItems(),
+                    renderItem: item => renderNewsItem(item)
                 },
                 {
                     containerId: 'home-results-sync',
@@ -6069,6 +6103,7 @@
 
         // 确保在页面加载完成后执行同步逻辑
         document.addEventListener('DOMContentLoaded', () => {
+            renderHomeCarousel();
             renderNewsList();
             renderFeaturedPublicationsList();
             updateHomePreviews(); // 执行同步
