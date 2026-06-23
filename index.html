@@ -49,37 +49,10 @@
 
     <div id="page-home" class="page-section">
         <section class="hero-carousel" id="home-news-carousel">
-
-            <div class="slide fade slide-news-uav"
-                    onclick="handleSlideClick(event, 'page-news')">
-                <div class="slide-overlay">
-                    <h2>团队发布首个百万级 UAV 指代目标定位数据集，相关工作发表于 T-PAMI 期刊</h2>
-                </div>
-            </div>
-
-            <div class="slide fade slide-news-papers"
-                onclick="handleSlideClick(event, 'page-news')">
-                <div class="slide-overlay">
-                    <h2>团队在 ICLR 2026 和 CVPR 2026 上发表多篇论文</h2>
-                </div>
-            </div>
-
-            <div class="slide fade slide-news-award"
-                    onclick="handleSlideClick(event, 'page-news')">
-                <div class="slide-overlay">
-                    <h2>团队傅雪阳教授获中国图象图形学学会（CSIG）青年科学家奖</h2>
-                </div>
-            </div>
-
             <button type="button" class="prev" onclick="plusSlides(event, -1)" aria-label="上一张">&#10094;</button>
             <button type="button" class="next" onclick="plusSlides(event, 1)" aria-label="下一张">&#10095;</button>
 
-            <div class="dot-container">
-                <button type="button" class="dot active" onclick="currentSlide(event, 1)" aria-label="转到第 1 张"></button>
-                <button type="button" class="dot" onclick="currentSlide(event, 2)" aria-label="转到第 2 张"></button>
-                <button type="button" class="dot" onclick="currentSlide(event, 3)" aria-label="转到第 3 张"></button>
-                <button type="button" class="dot" onclick="currentSlide(event, 4)" aria-label="转到第 4 张"></button>
-            </div>
+            <div class="dot-container"></div>
         </section>
 
         <section class="section container home-intro-section">
@@ -769,7 +742,7 @@
         <section class="section container page-content">
             <h3 class="section-title">实验室负责人 <span class="section-title-en">Director</span></h3>
 
-            <div class="pi-profile grid-2-cols mt-20"style="grid-template-columns: 1fr 3fr; gap: 30px;">
+            <div class="pi-profile grid-2-cols mt-20">
                 <div class="pi-photo-container">
                     <img src="Images/zhazhengjun.jpg" class="pi-img" alt="查正军教授">
                 </div>
@@ -5513,6 +5486,8 @@
         function showSlides(n) {
             let slides = document.getElementsByClassName("slide");
             let dots = document.getElementsByClassName("dot");
+
+            if (!slides.length || !dots.length) return;
             
             // 循环逻辑
             if (n > slides.length) { slideIndex = 1 }
