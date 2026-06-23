@@ -1,41 +1,6 @@
 // Add or edit current student information here.
 window.MEILAB_CURRENT_STUDENTS = [
     {
-        "name": "朱佳莹",
-        "status": "2020级 博士",
-        "direction": "多模态大模型推理加速"
-    },
-    {
-        "name": "陈进泽",
-        "status": "2020级 博士",
-        "direction": "事件信号处理"
-    },
-    {
-        "name": "谢璟毅",
-        "status": "2020级 博士",
-        "direction": "多模态虚假媒体检测"
-    },
-    {
-        "name": "王堃宇",
-        "status": "2021级 博士",
-        "direction": "大模型高效训练-推理"
-    },
-    {
-        "name": "葛成杰",
-        "status": "2021级 博士",
-        "direction": "脑启发的脉冲神经网络"
-    },
-    {
-        "name": "杨健",
-        "status": "2021级 博士",
-        "direction": "多模态大模型"
-    },
-    {
-        "name": "韩晗",
-        "status": "2021级 博士",
-        "direction": "事件相机原理及其应用"
-    },
-    {
         "name": "赵萌生",
         "status": "2022级 博士",
         "direction": "科研智能体，基于大模型的科研内容理解和多模态生成"
@@ -283,6 +248,6 @@ window.MEILAB_CURRENT_STUDENTS = [
     {
         "name": "唐河洋",
         "status": "2025级 硕士",
-        "direction": "超材料生成/协和医学AI"
+        "direction": "超材料生成/医学AI"
     }
 ];
