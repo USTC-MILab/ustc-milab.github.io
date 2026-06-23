@@ -45,44 +45,43 @@ a { text-decoration: none; color: inherit; }
 .hidden { display: none !important; }
 .page-content { min-height: 600px; padding-top: 20px; }
 
-/* 顶部与导航 - 替换为中科大蓝 #004098 */
-/* 新增：专门负责全宽背景的类 */
 .top-bar-bg {
     background: linear-gradient(180deg, #1d416d 0%, #245f9f 100%);
     width: 100%;
-    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.08);
 }
 
-/* 修改：去掉原有背景色，保留内部对齐布局 */
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 92px;
+    min-height: 74px;
     color: white;
-    padding: 18px 20px;
+    padding: 12px 20px;
 }
 .navbar {
-    background: rgba(29, 65, 109, 0.94);
-    box-shadow: 0 4px 12px rgba(8, 42, 90, 0.08);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 14px rgba(20, 58, 112, 0.035);
 }
 .nav-links {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 6px;
-    padding: 10px 0;
+    gap: 4px;
+    padding: 8px 0;
 }
 .nav-links a {
-    color: white;
-    padding: 10px 16px;
+    color: var(--text-secondary);
+    padding: 8px 14px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 999px;
     transition: background 0.25s, color 0.25s;
 }
 .nav-links a:hover, .nav-links a.active {
-    background-color: rgba(255,255,255,0.10);
+    color: var(--accent-dark);
+    background-color: rgba(36, 95, 159, 0.08);
 }
 
 /* 首页大图 */
@@ -99,19 +98,14 @@ a { text-decoration: none; color: inherit; }
 .slide {
     display: none;
     width: 100%;
-    height: 100%; /* 继承父容器 .hero-carousel 的 400px 高度 */
+    height: 100%;
     
-    /* 核心属性：高度固定为 100% (即 400px)，宽度根据比例自动调整 */
     background-size: auto 100%; 
     
-    /* 配合以下属性效果最佳 */
-    background-repeat: no-repeat; /* 防止图片在宽度不足时重复出现 */
-    background-position: center;  /* 让图片在水平方向上居中显示 */
-    background-color: #eef3f8;    /* 可选：如果图片太窄，给左右两侧留白处加个底色 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #eef3f8;
 }
-.slide-news-uav { background-image: url('Images/pami-uav.png'); }
-.slide-news-papers { background-image: url('Images/cvpriclr.png'); }
-.slide-news-award { background-image: url('Images/fuxueyang.png'); }
 .slide::before {
     content: "";
     position: absolute;
@@ -166,6 +160,7 @@ a { text-decoration: none; color: inherit; }
 }
 .home-dashboard-section {
     padding-top: 0;
+    margin-top: 4px;
 }
 
 .home-intro-section .grid-2-cols,
@@ -181,7 +176,7 @@ a { text-decoration: none; color: inherit; }
     background: rgba(255,255,255,0.72);
     border: none;
     border-radius: var(--radius-lg);
-    padding: 22px 22px 18px;
+    padding: 20px 22px 18px;
     box-shadow: none;
 }
 
@@ -189,8 +184,8 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
-    margin-bottom: 12px;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 .section-header .section-title {
@@ -205,7 +200,7 @@ a { text-decoration: none; color: inherit; }
     content: "";
     flex: 1;
     height: 2px;
-    background: var(--border-strong);
+    background: rgba(26, 49, 80, 0.14);
     min-width: 36px;
     order: 2;
 }
@@ -284,27 +279,29 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* 4. 论文成果 */
-.bg-light { background-color: var(--surface-muted); border-radius: var(--radius-sm);}
+.bg-light { background-color: transparent; border-radius: 0;}
 .paper-card {
-    background: var(--surface);
-    border-left: 2px solid var(--accent);
-    padding: 16px 16px 14px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+    padding: 13px 0 14px;
+    border-radius: 0;
+    box-shadow: none;
+    transition: border-color 0.25s ease;
 }
 .paper-card:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border-strong);
 }
-.paper-text h4 { font-size: 15px; margin-bottom: 10px; color: var(--text-primary); font-weight: 600;}
-.paper-text .authors { font-size: 14px; margin-bottom: 5px; color: var(--text-secondary);}
-.paper-text .journal { font-size: 14px; color: var(--text-tertiary); }
+.paper-text h4 { font-size: 14px; margin-bottom: 7px; color: var(--text-primary); font-weight: 600; line-height: 1.5;}
+.paper-text .authors { font-size: 13px; margin-bottom: 4px; color: var(--text-secondary); line-height: 1.55;}
+.paper-text .journal { font-size: 13px; color: var(--text-tertiary); }
 .more-btn {
     background: transparent;
     color: var(--accent-dark);
-    border: 1px solid var(--border-strong);
-    padding: 5px 11px;
+    border: none;
+    padding: 3px 0 3px 4px;
     font-size: 12px;
     border-radius: 999px;
     letter-spacing: 0;
@@ -313,47 +310,51 @@ a { text-decoration: none; color: inherit; }
     flex: 0 0 auto;
 }
 .more-btn:hover {
-    background: var(--surface-muted);
+    background: transparent;
     color: var(--accent-dark);
+    text-decoration: underline;
 }
 
 /* 5. 招生招聘框 */
 .join-box {
-    background: var(--surface);
-    padding: 24px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--accent);
-    box-shadow: var(--shadow-sm);
+    background: transparent;
+    padding: 20px 0 18px;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border);
+    box-shadow: none;
 }
-.join-box p { margin-bottom: 10px; font-size: 15px; }
+.join-box p { margin-bottom: 8px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 .join-card-title {
-    color: var(--accent-dark);
-    margin-bottom: 14px;
-    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 17px;
     font-weight: 600;
 }
 .contact-title {
-    margin-bottom: 14px;
-    color: white;
-    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-size: 17px;
     font-weight: 600;
 }
 .contact-email {
-    margin-top: 10px;
-    font-size: 18px;
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--accent-dark);
 }
 .contact-note {
-    margin-top: 10px;
-    opacity: 0.86;
+    margin-top: 8px;
+    opacity: 1;
+    color: var(--text-tertiary);
 }
 
 /* 底部 */
 .footer {
-    background: #0b3f84;
-    padding: 26px 0;
-    color: rgba(255,255,255,0.86);
+    background: transparent;
+    padding: 24px 0;
+    color: var(--text-secondary);
     margin-top: 60px;
+    border-top: 1px solid var(--border);
 }
 .footer-inner {
     display: flex;
@@ -368,13 +369,13 @@ a { text-decoration: none; color: inherit; }
     min-width: 0;
 }
 .footer-lab-logo {
-    width: 118px;
-    height: 54px;
+    width: 104px;
+    height: 48px;
     object-fit: contain;
     display: block;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.96);
-    padding: 5px;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
 }
 .footer-brand-copy {
     display: flex;
@@ -385,38 +386,35 @@ a { text-decoration: none; color: inherit; }
 .footer-brand-copy strong {
     font-size: 14px;
     font-weight: 600;
-    color: rgba(255,255,255,0.94);
+    color: var(--text-primary);
 }
 .footer-brand-copy span {
     font-size: 12px;
-    color: rgba(255,255,255,0.64);
+    color: var(--text-tertiary);
 }
 .footer p {
     margin: 0;
-    font-size: 13px;
-    color: rgba(255,255,255,0.68);
+    font-size: 12px;
+    color: var(--text-tertiary);
     text-align: right;
 }
 
-/* 负责人资料卡片布局容器 */
 .pi-profile {
     display: grid;
-    /* 你可以在这里调整比例，比如 1对2 或 1对3 */
-    grid-template-columns: 1fr 2fr; 
-    gap: 40px;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
     align-items: start;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
 }
 
-/* 负责人照片样式 */
 .pi-img {
-    width: 80%;
+    width: min(190px, 100%);
     height: auto;
     display: block;
-    /* 已移除 border (边界) */
     border: none; 
-    /* 已移除 box-shadow (阴影) */
     box-shadow: none; 
-    border-radius: 0px; /* 如果需要直角，设为 0；如果需要圆角，保持 6px */
+    border-radius: var(--radius-sm);
 }
 
 /* 图片容器：控制它在网格中的位置 */
@@ -528,9 +526,9 @@ a { text-decoration: none; color: inherit; }
 
 .news-item {
     display: flex;
-    align-items: flex-start; /* 顶部对齐 */
-    gap: 12px;               /* 日期方块与文字的间距 */
-    padding: 12px 0;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border);
     list-style: none;
 }
@@ -540,15 +538,14 @@ a { text-decoration: none; color: inherit; }
     padding-bottom: 0;
 }
 
-/* 日期正方形格子 */
 .date-box {
-    flex-shrink: 0;          /* 防止方块被压缩 */
-    width: 48px;
+    flex-shrink: 0;
+    width: 50px;
     height: auto;
     background: transparent;
     color: var(--text-tertiary);
     display: flex;
-    flex-direction: column;  /* 上下排列 */
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 0;
@@ -556,20 +553,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 .date-box .year {
-    font-size: 12px;
+    font-size: 11px;
     margin-bottom: 2px;
     font-weight: 600;
+    letter-spacing: 0.03em;
 }
 
 .date-box .md {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-secondary);
     font-weight: 600;
 }
 
-/* 右侧文字区域 */
 .news-text {
-    flex-grow: 1;            /* 占据剩余空间 */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -581,9 +578,9 @@ a { text-decoration: none; color: inherit; }
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     transition: color 0.3s;
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 .news-title:hover {
@@ -594,8 +591,7 @@ a { text-decoration: none; color: inherit; }
     font-size: 12px;
     color: var(--text-tertiary);
     margin: 0;
-    line-height: 1.55;
-    /* 限制描述文本行数 */
+    line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -611,15 +607,16 @@ a { text-decoration: none; color: inherit; }
     border-bottom: 1px solid var(--border);
     border-left: none;
     border-radius: 0;
-    padding: 12px 0;
+    padding: 14px 0;
     box-shadow: none;
     margin-top: 0;
 }
 .paper-card-mini h5 {
     font-size: 14px;
-    margin-bottom: 5px;
-    line-height: 1.45;
+    margin-bottom: 6px;
+    line-height: 1.5;
     color: var(--text-primary);
+    font-weight: 600;
 }
 .paper-card-mini .journal {
     font-size: 12px;
@@ -633,8 +630,12 @@ a { text-decoration: none; color: inherit; }
 .mt-10 { margin-top: 10px; }
 
 /* 合作机构容器 */
+.home-partners-section {
+    padding-top: 4px;
+}
+
 .partners-container {
-    padding: 0;
+    padding: 2px 0 0;
     text-align: center;
     background: transparent;
     border: none;
@@ -642,13 +643,18 @@ a { text-decoration: none; color: inherit; }
     box-shadow: none;
 }
 .partners-logo {
-    max-width: 1120px;
+    max-width: 1040px;
     margin: 0 auto;
     display: block;
 }
 
 .publications-page {
-    padding: 30px;
+    padding: 24px 0 0;
+}
+
+.publications-page .grid-2-cols {
+    grid-template-columns: 1fr;
+    gap: 0;
 }
 
 .detail-section-title {
@@ -657,11 +663,7 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 20px;
 }
 
-/* 轮播图增强样式 */
-
-/* 隐藏所有幻灯片，通过 JS 控制显示 */
-
-/* 淡入动画效果 */
+/* 轮播 */
 .fade {
     animation-name: fadeAnim;
     animation-duration: 1.5s;
@@ -672,7 +674,6 @@ a { text-decoration: none; color: inherit; }
     to {opacity: 1}
 }
 
-/* 左右切换箭头 */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -703,7 +704,6 @@ a { text-decoration: none; color: inherit; }
 .next { right: 12px; }
 .prev:hover, .next:hover { background-color: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.24); }
 
-/* 底部圆点指示器 */
 .dot-container {
     position: absolute;
     bottom: 12px;
@@ -729,155 +729,96 @@ a { text-decoration: none; color: inherit; }
 
 
 
-/* =========================================
-   二级页面详情布局 (侧边栏 + 主内容)
-   ========================================= */
-
-/* 顶部小横幅 */
+/* 详情页 */
 .sub-banner {
-    height: 180px;
+    height: 128px;
     position: relative;
     background-size: cover;
     background-position: center;
-    margin-bottom: 40px;
+    margin-bottom: 26px;
 }
 .sub-banner-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 40, 104, 0.8); /* 中科大深蓝半透明 */
+    background: rgba(8, 42, 90, 0.72);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
 }
-.sub-banner h2 { font-size: 32px; letter-spacing: 2px; }
-
-/* 左右分栏容器 */
-.detail-layout {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-/* 左侧边栏 */
-.sidebar {
-    width: 250px;
-    flex-shrink: 0;
-}
-.side-nav {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--surface);
-    box-shadow: none;
-}
-.side-nav li {
-    border-bottom: 1px solid var(--border);
-}
-.side-nav li:last-child { border-bottom: none; }
-.side-nav a {
-    display: block;
-    padding: 14px 18px;
-    color: var(--text-primary);
-    font-size: 15px;
-    transition: background-color 0.25s, color 0.25s;
-}
-.side-nav a:hover, .side-nav a.active {
-    background-color: var(--accent); /* 选中变为中科大蓝 */
-    color: white;
+.sub-banner h2 {
+    font-size: 26px;
+    letter-spacing: 1px;
     font-weight: 600;
 }
-.side-nav a.back-btn {
-    background-color: var(--surface-muted);
-    color: var(--accent);
-    font-size: 14px;
-    text-align: center;
-}
-.side-nav a.back-btn:hover { background-color: #e9eef5; }
 
-/* 右侧主内容 */
-.main-panel {
-    flex: 1;
-}
 .breadcrumb {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--text-tertiary);
-    border-bottom: 1px solid var(--border-strong);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
 }
-.breadcrumb strong { color: var(--accent); }
+.breadcrumb strong { color: var(--text-secondary); }
 
-/* 项目小卡片 */
-.project-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--surface);
-    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
-}
-.project-card:hover {
-    box-shadow: var(--shadow-sm);
-    border-color: var(--border-strong);
-    transform: translateY(-1px);
-}
-.p-img {
-    height: 140px;
-    background-size: cover;
-    background-position: center;
-}
-.p-info {
-    padding: 15px;
-}
-.p-info h5 {
-    font-size: 15px;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-    height: 44px; /* 限制标题高度为两行 */
-    overflow: hidden;
-}
-.p-date {
-    font-size: 13px;
-    color: var(--text-tertiary);
-}
-
-
-/* 返回链接样式 */
 .back-link {
-    color: var(--accent);
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600;
     display: inline-block;
-    transition: color 0.3s;
+    transition: color 0.25s;
 }
 .back-link:hover {
     color: var(--accent-dark);
     text-decoration: underline;
 }
 
-/* 详情页标题增强 */
 .detail-section-title {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--text-primary);
-    border-left: 2px solid var(--accent);
-    padding-left: 10px;
-    margin-bottom: 20px;
-    margin-top: 50px; /* 增加大区块之间的垂直距离 */
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 14px;
+    margin-top: 0;
+    font-weight: 600;
 }
 
-/* 工作简介框 - 在全宽模式下增加内边距 */
 .work-desc {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-secondary);
-    background-color: var(--surface-muted);
-    padding: 20px;
-    border-radius: var(--radius-md);
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
     line-height: 1.7;
-    border: 1px solid var(--border);
+    border: none;
     margin-top: 10px;
 }
 
+.framework-panel,
+.works-panel {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding: 22px 0 0;
+    box-shadow: none;
+}
+
+.framework-panel p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.framework-panel p + div {
+    padding: 14px 0 0 !important;
+}
+
+.framework-panel img {
+    border-radius: var(--radius-sm) !important;
+    box-shadow: none !important;
+}
 
 /* =========================================
    现代学术成果列表样式 (Modern Work List)
@@ -885,43 +826,43 @@ a { text-decoration: none; color: inherit; }
 .modern-work-list {
     padding: 0;
     list-style: none;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .modern-work-item {
     display: flex;
-    gap: 15px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    transition: all 0.3s ease;
+    gap: 14px;
+    padding: 13px 0;
+    margin-bottom: 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    transition: border-color 0.25s ease;
 }
 
-/* 鼠标悬浮特效 */
 .modern-work-item:hover {
     border-color: var(--border-strong);
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-1px);
+    box-shadow: none;
+    transform: none;
 }
 
-/* 左侧数字徽章 */
 .work-index {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--accent);
-    background: var(--surface-muted);
-    height: 36px;
-    width: 36px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    background: transparent;
+    height: auto;
+    width: 28px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; /* 圆形 */
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 0;
     flex-shrink: 0;
+    letter-spacing: 0.04em;
+    padding-top: 2px;
 }
 
-/* 右侧内容区 */
 .work-details {
     flex: 1;
 }
@@ -929,13 +870,14 @@ a { text-decoration: none; color: inherit; }
 .work-title {
     font-size: 15px;
     color: var(--text-primary);
-    margin-bottom: 6px;
-    line-height: 1.4;
+    margin-bottom: 7px;
+    line-height: 1.5;
     transition: color 0.3s;
+    font-weight: 600;
 }
 
 .modern-work-item:hover .work-title {
-    color: var(--accent); /* 悬浮时标题变蓝 */
+    color: var(--accent-dark);
 }
 
 .work-authors {
@@ -944,48 +886,44 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 10px;
 }
 
-/* 底部标签栏 */
 .work-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-/* 期刊/会议高亮底纹 */
 .work-venue {
     font-size: 12px;
-    font-weight: bold;
-    color: var(--accent);
-    background: var(--surface-muted);
-    padding: 3px 8px;
-    border-radius: var(--radius-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
 }
 
-/* PDF/Code 小按钮 */
 .work-tags .tag {
     font-size: 12px;
     color: var(--text-tertiary);
-    border: 1px solid var(--border-strong);
-    padding: 2px 8px;
+    border: 1px solid var(--border);
+    padding: 2px 7px;
     border-radius: 12px;
     margin-left: 6px;
     transition: all 0.2s;
 }
 
 .work-tags .tag:hover {
-    border-color: var(--accent);
-    color: #ffffff;
-    background: var(--accent);
+    border-color: var(--border-strong);
+    color: var(--accent-dark);
+    background: transparent;
 }
 
-/* =========================================
-   优雅的区块分隔线
-   ========================================= */
 .section-divider {
     border: none;
     height: 1px;
-    background-color: var(--border); /* 极浅的蓝灰色，非常柔和 */
-    margin: 32px 0; /* 控制线上下的留白距离 */
+    background-color: var(--border);
+    margin: 34px 0;
 }
 
 
@@ -994,57 +932,38 @@ a { text-decoration: none; color: inherit; }
 
 
 
-/* 1. 成员列表卡片升级：淡蓝色长方形 */
 /* =========================================
-   极简主义团队列表 (Minimalist Faculty)
+   极简团队列表
    ========================================= */
 
 .team-member {
     background-color: transparent;
-    padding: 10px;
+    padding: 8px 6px 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.25s ease;
     border: none;
 }
 
-/* 悬浮效果：仅让文字变色或图片微调，不改变背景 */
 .team-member:hover h4 {
     color: var(--accent-dark);
     text-decoration: none;
 }
 
-.team-member:hover img {
-    opacity: 0.9;
-    transform: scale(1.02); /* 图片轻微放大，非常有质感 */
-}
-
-/* 核心：解决“人头显示不全”的照片容器 */
-.avatar-container {
-    width: 100%;
-    height: 240px; /* 增加高度，长方形更显正式 */
-    overflow: hidden;
-    margin-bottom: 15px;
-    background-color: #f9f9f9; /* 仅给图片一个极淡的占位色 */
-}
-
-.avatar-container img {
-    width: 100%;
-    height: 100%;
-    /* 魔法属性：cover 确保填满，top 确保永远从头顶开始显示，不切人头 */
-    object-fit: cover;
-    object-position: top; 
-    transition: all 0.4s ease;
+.team-member:hover .avatar {
+    border-color: var(--border-strong);
+    filter: saturate(0.96) contrast(0.98);
 }
 
 .team-member h4 {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--text-primary);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     transition: color 0.3s;
+    font-weight: 600;
 }
 
 .team-member p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-tertiary);
 }
 
@@ -1053,72 +972,78 @@ a { text-decoration: none; color: inherit; }
 /* 2. 详情页卡片布局 */
 .member-detail-card {
     background-color: var(--surface);
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
+    padding: 28px 0 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border);
     color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 }
 
 .member-detail-top {
     display: grid;
-    grid-template-columns: 280px 1fr; /* 左侧照片固定宽度 */
-    gap: 40px;
-    margin-bottom: 30px;
+    grid-template-columns: 220px 1fr;
+    gap: 34px;
+    margin-bottom: 28px;
 }
 
 .detail-photo img {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     box-shadow: none;
 }
 
 .member-name {
-    font-size: 26px;
+    font-size: 24px;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     border-bottom: 1px solid var(--border-strong);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 .member-title {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-secondary);
     margin-left: 10px;
+    font-weight: 500;
 }
 
 .bio-text p {
-    line-height: 1.8;
-    font-size: 15px;
+    line-height: 1.75;
+    font-size: 14px;
     text-align: justify;
+    color: var(--text-secondary);
 }
 
-/* 3. 详情页下方盒子 */
 .member-detail-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 28px;
+    margin-top: 18px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
 }
 
 .detail-box {
-    background: var(--surface-soft);
-    padding: 20px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
 }
 
 .detail-box h4 {
     color: var(--accent-dark);
-    margin-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .detail-box ul {
-    padding-left: 20px;
+    padding-left: 18px;
 }
 .detail-box li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
 }
 
 
@@ -1130,58 +1055,40 @@ a { text-decoration: none; color: inherit; }
 .student-text-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px 18px;
+    gap: 8px 28px;
 }
 
 .student-text-item {
-    background-color: rgba(255,255,255,0.68);
-    padding: 16px 18px;
-    border: 1px solid rgba(204, 213, 226, 0.72);
-    transition: border-color 0.25s ease, background-color 0.25s ease;
-    border-radius: var(--radius-md);
+    background-color: transparent;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.25s ease;
+    border-radius: 0;
 }
 
 .student-text-item:hover {
-    background-color: rgba(255,255,255,0.82);
     border-color: var(--border-strong);
 }
 
-/* 在读学生姓名 */
 .s-name {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--text-primary);
-    margin-bottom: 7px;
+    margin-bottom: 5px;
     font-weight: 600;
 }
 
-/* 学位状态 */
 .s-status {
-    font-size: 13px;
-    color: var(--accent);
+    font-size: 12px;
+    color: var(--text-secondary);
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-/* 研究方向 (在读) */
 .s-dir {
     font-size: 12px;
     color: var(--text-secondary);
-    line-height: 1.45;
-}
-
-/* 毕业年份 (校友) */
-.s-grad {
-    font-size: 13px;
-    color: var(--text-tertiary);
-    margin-bottom: 5px;
-}
-
-/* 毕业去向 (校友) */
-.s-dest {
-    font-size: 13px;
-    color: var(--text-secondary);
-    font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.55;
 }
 
 .alumni-simple-list {
@@ -1203,36 +1110,34 @@ a { text-decoration: none; color: inherit; }
 
 /* 年份分隔行容器 */
 .year-header {
-    grid-column: 1 / -1; /* 核心：强制横跨网格的所有列 */
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    margin: 40px 0 20px 0; /* 上留白 40px，下留白 20px */
+    margin: 34px 0 8px 0;
 }
 
-/* 年份文字样式 */
 .year-header span {
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--accent); /* 中科大蓝 */
-    padding-right: 20px;
-    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    padding-right: 14px;
+    font-family: inherit;
+    letter-spacing: 0.02em;
 }
 
-/* 文字右侧的横线 */
 .year-header::after {
     content: "";
-    flex: 1; /* 自动填满剩余空间 */
+    flex: 1;
     height: 1px;
-    background: var(--border-strong);
+    background: var(--border);
 }
 
-/* 适配移动端：如果变成单列，间距缩小一点 */
 @media (max-width: 768px) {
     .year-header {
-        margin: 30px 0 15px 0;
+        margin: 28px 0 8px 0;
     }
     .year-header span {
-        font-size: 22px;
+        font-size: 17px;
     }
 }
 
@@ -1326,19 +1231,44 @@ a { text-decoration: none; color: inherit; }
 
 /* 确保有两列网格的定义 */
 
-/* 底部联系方式盒子的特殊样式 */
 .contact-box {
-    background: var(--accent-dark);
-    color: white;
-    width: 100%; /* 横跨整行 */
-    padding: 30px;
-    border-radius: var(--radius-lg);
+    background: transparent;
+    color: var(--text-primary);
+    width: 100%;
+    padding: 20px 0 18px;
+    border-radius: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     box-sizing: border-box;
     box-shadow: none;
 }
 
 /* 响应式：手机端时，两列自动变一列 */
 @media (max-width: 768px) {
+    body {
+        background: var(--bg-page-soft);
+    }
+
+    .container {
+        width: min(100% - 28px, 720px);
+    }
+
+    .page-content {
+        min-height: auto;
+        padding-top: 16px;
+    }
+
+    .section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .grid-3-cols,
+    .grid-4-cols {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
     .grid-2-cols {
         grid-template-columns: 1fr;
     }
@@ -1347,21 +1277,35 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 768px) {
     .top-bar {
         height: auto;
-        padding: 16px 16px 12px;
+        min-height: 64px;
+        padding: 12px 0;
         gap: 14px;
         align-items: flex-start;
     }
 
+    .school-logo {
+        height: 38px;
+    }
+
     .nav-links {
-        justify-content: space-between;
-        gap: 8px 10px;
-        padding: 6px 0 2px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 4px;
+        padding: 8px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-links a {
-        flex: 0 0 calc((100% - 30px) / 4);
-        padding: 10px 14px;
-        font-size: 14px;
+        flex: 0 0 auto;
+        min-width: max-content;
+        padding: 8px 12px;
+        font-size: 13px;
         text-align: center;
     }
 
@@ -1373,12 +1317,18 @@ a { text-decoration: none; color: inherit; }
     .logo h2 {
         white-space: normal;
         font-size: 1.15rem;
+        line-height: 1.35;
     }
 
     .hero-carousel {
-        height: 210px;
+        height: clamp(190px, 48vw, 260px);
         margin: 0 auto 18px;
         border-radius: 0;
+    }
+
+    .slide {
+        background-size: cover;
+        background-position: center;
     }
 
     .slide-overlay {
@@ -1394,13 +1344,27 @@ a { text-decoration: none; color: inherit; }
     .intro-text,
     .join-box,
     .contact-box {
-        padding: 18px 16px;
-        border-radius: var(--radius-lg);
+        padding: 16px 0;
+        border-radius: 0;
     }
 
     .focus-board {
-        padding: 18px 16px;
-        border-radius: var(--radius-lg);
+        padding: 16px 0;
+        border-radius: 0;
+    }
+
+    .home-lab-logo,
+    .partners-logo,
+    .responsive-img,
+    .detail-photo img,
+    .pi-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .home-lab-logo {
+        max-height: 120px;
+        object-fit: contain;
     }
 
     .focus-title {
@@ -1427,8 +1391,43 @@ a { text-decoration: none; color: inherit; }
         padding: 4px 0 0;
     }
 
+    .sub-banner {
+        height: 108px;
+        margin-bottom: 18px;
+    }
+
+    .sub-banner h2 {
+        font-size: 20px;
+        padding: 0 18px;
+        text-align: center;
+    }
+
+    .framework-panel,
+    .works-panel {
+        padding-top: 18px;
+    }
+
+    .modern-work-item {
+        gap: 10px;
+    }
+
+    .work-index {
+        width: 24px;
+    }
+
+    .work-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .work-tags .tag {
+        display: inline-block;
+        margin: 0 6px 6px 0;
+    }
+
     .member-detail-card {
-        padding: 22px 18px;
+        padding: 22px 0 0;
     }
 
     .member-detail-top,
@@ -1438,7 +1437,18 @@ a { text-decoration: none; color: inherit; }
     }
 
     .member-name {
-        font-size: 24px;
+        font-size: 21px;
+    }
+
+    .member-title {
+        display: block;
+        margin: 4px 0 0;
+        font-size: 13px;
+    }
+
+    .team-member .avatar {
+        width: min(150px, 48vw);
+        height: min(200px, 64vw);
     }
 
     .student-text-grid {
@@ -1456,7 +1466,26 @@ a { text-decoration: none; color: inherit; }
     }
 
     .card-content {
-        padding: 22px 20px 20px;
+        padding: 18px 0 0;
+    }
+
+    .info-card {
+        border-radius: 0;
+    }
+
+    .paper-card {
+        padding: 12px 0;
+    }
+
+    .paper-text h4,
+    .news-title,
+    .work-title {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .date-box {
+        width: 44px;
     }
 
     .section-header {
@@ -1513,97 +1542,179 @@ a { text-decoration: none; color: inherit; }
 
     .campus-showcase {
         height: 220px;
-        border-radius: 20px;
+        border-radius: var(--radius-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: min(100% - 24px, 456px);
+    }
+
+    .top-bar {
+        min-height: 58px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo h2 {
+        font-size: 1rem;
+    }
+
+    .school-logo {
+        height: 34px;
+    }
+
+    .nav-links a {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .hero-carousel {
+        height: 178px;
+        margin-bottom: 14px;
+    }
+
+    .slide-overlay h2 {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+
+    .section-title {
+        font-size: 19px;
+        margin-bottom: 16px;
+    }
+
+    .section-title-en {
+        font-size: 11px;
+    }
+
+    .home-intro-section .grid-2-cols,
+    .home-dashboard-grid {
+        gap: 18px;
+    }
+
+    .news-item {
+        gap: 10px;
+        padding: 12px 0;
+    }
+
+    .news-desc {
+        -webkit-line-clamp: 3;
+    }
+
+    .paper-text h4,
+    .paper-card-mini h5,
+    .work-title {
+        font-size: 13px;
+    }
+
+    .paper-text .authors,
+    .paper-text .journal,
+    .work-venue,
+    .work-tags .tag {
+        font-size: 11px;
+    }
+
+    .sub-banner {
+        height: 92px;
+    }
+
+    .sub-banner h2 {
+        font-size: 18px;
+    }
+
+    .campus-showcase {
+        height: 180px;
+    }
+
+    .campus-caption {
+        right: 10px;
+        bottom: 10px;
+        font-size: 11px;
+    }
+
+    .footer-brand {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
     }
 }
 
 
-/* =========================================
-   校园风光装饰图样式
-   ========================================= */
 .campus-showcase {
     position: relative;
     width: 100%;
-    height: 300px; /* 固定一个合适的高度，或者设为 auto */
-    margin-top: 30px;
-    border-radius: var(--radius-lg);
+    height: 260px;
+    margin-top: 26px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 }
 
 .campus-showcase img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 核心：确保图片填满且不拉伸 */
-    object-position: center; /* 图片重心居中 */
+    object-fit: cover;
+    object-position: center;
     display: block;
-    transition: transform 0.8s ease;
+    transition: none;
 }
 
-/* 鼠标悬浮时图片轻微放大效果 */
-.campus-showcase:hover img {
-    transform: scale(1.02);
-}
-
-/* 图片右下角的装饰文字（可选） */
 .campus-caption {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 14px;
+    right: 14px;
     color: white;
-    background: rgba(8, 42, 90, 0.22);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    letter-spacing: 2px;
+    background: rgba(8, 42, 90, 0.18);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-/* 让 logo 容器内的图片和文字对齐 */
 .logo {
     display: flex;
-    align-items: center; /* 垂直居中 */
-    gap: 15px;           /* 校徽和文字的间距 */
+    align-items: center;
+    gap: 15px;
 }
 
-/* 校徽图片大小控制 */
 .school-logo {
-    height: 45px;        /* 调整到你觉得合适的高度 */
+    height: 45px;
     width: auto;
     display: block;
 }
 
-/* 学校链接文字样式 */
 .ustc-link {
-    color: inherit;      /* 继承 h2 的颜色 */
-    text-decoration: none; /* 去掉下划线 */
+    color: inherit;
+    text-decoration: none;
     transition: color 0.3s;
 }
 
 .ustc-link:hover {
     color: var(--accent);
-    text-decoration: underline; /* 悬停时显示下划线（可选） */
+    text-decoration: underline;
 }
 
-/* 确保 h2 本身不换行 */
 .logo h2 {
     margin: 0;
     font-size: 1.5rem;
-    white-space: nowrap; /* 防止标题在窄屏幕下断开 */
+    white-space: nowrap;
 }
 
-/* 卡片内容容器调整为 Flex 布局，方便按钮对齐 */
 .card-content {
     padding: 20px 20px 18px;
     display: flex;
     flex-direction: column;
-    height: 100%; /* 如果卡片高度固定，这可以确保按钮在底部 */
+    height: 100%;
 }
 
-/* 按钮基础样式 */
 .card-more {
     margin-top: 15px;
-    color: var(--accent); /* 中科大蓝 */
+    color: var(--accent);
     font-size: 14px;
     font-weight: 600;
     display: inline-flex;
@@ -1616,12 +1727,596 @@ a { text-decoration: none; color: inherit; }
     transition: transform 0.3s ease;
 }
 
-/* 当鼠标悬停在【整个卡片】上时，按钮的变化 */
 .info-card:hover .card-more {
-    color: var(--accent-dark); /* 悬停时颜色加深 */
+    color: var(--accent-dark);
 }
 
-/* 当鼠标悬停在卡片上时，箭头向右微动，增加指引感 */
 .info-card:hover .card-more .arrow {
     transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .school-logo {
+        height: 38px;
+    }
+
+    .logo h2 {
+        white-space: normal;
+        font-size: 1.15rem;
+        line-height: 1.35;
+    }
+
+    .card-content {
+        padding: 18px 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        gap: 8px;
+    }
+
+    .school-logo {
+        height: 34px;
+    }
+
+    .logo h2 {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile refinement round 2: make content read like a native mobile layout. */
+@media (max-width: 768px) {
+    .section {
+        margin-bottom: 28px;
+    }
+
+    .intro-text p,
+    .bio-text p,
+    .framework-text p,
+    .join-box p {
+        text-align: left;
+        line-height: 1.78;
+    }
+
+    .pi-profile {
+        gap: 18px;
+        padding-top: 4px;
+    }
+
+    .pi-img {
+        width: min(170px, 52vw);
+        margin: 0 auto;
+    }
+
+    .detail-photo {
+        max-width: 190px;
+        margin: 0 auto;
+    }
+
+    .member-detail-card {
+        padding-top: 14px;
+    }
+
+    .member-detail-top,
+    .member-detail-bottom {
+        gap: 16px;
+    }
+
+    .student-text-grid {
+        gap: 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .student-card,
+    .alumni-simple-item {
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        border-left: 0;
+        border-radius: 0;
+        padding: 14px 0;
+        box-shadow: none;
+    }
+
+    .student-card:hover,
+    .alumni-simple-item:hover {
+        transform: none;
+        border-color: var(--line);
+        box-shadow: none;
+    }
+
+    .student-card h4 {
+        margin-bottom: 6px;
+    }
+
+    .student-year {
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .student-topic {
+        line-height: 1.6;
+    }
+
+    .news-item {
+        display: block;
+    }
+
+    .date-box {
+        display: flex;
+        width: auto;
+        gap: 6px;
+        margin-bottom: 6px;
+        color: var(--text-muted);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .date-year,
+    .date-day {
+        display: inline;
+        font-size: inherit;
+        line-height: 1.2;
+    }
+
+    .date-year::after {
+        content: ".";
+    }
+
+    .news-title {
+        margin-bottom: 6px;
+        line-height: 1.45;
+    }
+
+    .paper-card-mini,
+    .modern-work-item {
+        padding: 13px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        margin-bottom: 24px;
+    }
+
+    .intro-text p,
+    .bio-text p,
+    .framework-text p,
+    .join-box p {
+        font-size: 14px;
+        line-height: 1.72;
+    }
+
+    .pi-img {
+        width: min(150px, 50vw);
+    }
+
+    .detail-photo {
+        max-width: 168px;
+    }
+
+    .member-name {
+        font-size: 19px;
+    }
+
+    .student-card,
+    .alumni-simple-item {
+        padding: 12px 0;
+    }
+
+    .student-card h4 {
+        font-size: 16px;
+    }
+
+    .news-title {
+        font-size: 14px;
+    }
+
+    .news-desc {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+}
+
+/* Mobile refinement round 3: expose all primary navigation without horizontal scrolling. */
+@media (max-width: 768px) {
+    .navbar {
+        position: static;
+        box-shadow: none;
+    }
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+        overflow-x: visible;
+        padding: 8px 0 10px;
+    }
+
+    .nav-links a {
+        min-width: 0;
+        padding: 8px 4px;
+        border-radius: 8px;
+        font-size: 13px;
+        line-height: 1.15;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .nav-links a.active {
+        background: rgba(36, 95, 159, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar {
+        padding-bottom: 10px;
+    }
+
+    .nav-links {
+        gap: 5px;
+        padding-top: 7px;
+    }
+
+    .nav-links a {
+        padding: 7px 2px;
+        font-size: 12px;
+        letter-spacing: -0.01em;
+    }
+}
+
+/* Mobile refinement round 4: make the homepage carousel compact and news-led. */
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: clamp(132px, 34vw, 168px);
+        margin-bottom: 16px;
+        border-left: 0;
+        border-right: 0;
+        background: #edf2f7;
+    }
+
+    .slide {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .slide::before {
+        background: linear-gradient(180deg, rgba(8, 32, 74, 0) 0%, rgba(8, 32, 74, 0.08) 48%, rgba(8, 32, 74, 0.42) 100%);
+    }
+
+    .slide-overlay {
+        padding: 24px 14px 12px;
+        background: linear-gradient(180deg, rgba(8, 42, 90, 0) 0%, rgba(8, 42, 90, 0.5) 100%);
+    }
+
+    .slide-overlay h2 {
+        max-width: calc(100% - 28px);
+        font-size: 13px;
+        line-height: 1.42;
+        font-weight: 600;
+    }
+
+    .prev,
+    .next {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        opacity: 0.42;
+        background-color: rgba(8, 42, 90, 0.18);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .prev {
+        left: 8px;
+    }
+
+    .next {
+        right: 8px;
+    }
+
+    .dot-container {
+        bottom: 7px;
+        height: 8px;
+        line-height: 0;
+    }
+
+    .dot {
+        width: 5px;
+        height: 5px;
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel {
+        height: 136px;
+        margin-bottom: 12px;
+    }
+
+    .slide-overlay {
+        padding: 22px 12px 11px;
+    }
+
+    .slide-overlay h2 {
+        max-width: calc(100% - 22px);
+        font-size: 12px;
+        line-height: 1.38;
+    }
+
+    .prev,
+    .next {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile refinement round 5: make homepage news and result lists denser. */
+@media (max-width: 768px) {
+    #home-news-sync,
+    #home-results-sync {
+        margin-top: 10px;
+    }
+
+    #home-news-sync .news-item,
+    #home-results-sync .paper-card-mini {
+        padding: 11px 0;
+    }
+
+    #home-news-sync .news-item {
+        display: block;
+    }
+
+    #home-news-sync .date-box {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 4px;
+        width: auto;
+        margin-bottom: 4px;
+        color: var(--text-tertiary);
+    }
+
+    #home-news-sync .date-box .year,
+    #home-news-sync .date-box .md {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.2;
+        color: inherit;
+        letter-spacing: 0.02em;
+    }
+
+    #home-news-sync .date-box .year::after {
+        content: ".";
+    }
+
+    #home-news-sync .news-title,
+    #home-results-sync .paper-card-mini h5 {
+        margin-bottom: 4px;
+        font-size: 13px;
+        line-height: 1.42;
+        letter-spacing: -0.01em;
+    }
+
+    #home-news-sync .news-desc {
+        font-size: 12px;
+        line-height: 1.5;
+        -webkit-line-clamp: 2;
+    }
+
+    #home-results-sync .paper-card-mini .journal {
+        font-size: 11px;
+        line-height: 1.45;
+        color: var(--text-tertiary);
+    }
+}
+
+@media (max-width: 480px) {
+    #home-news-sync,
+    #home-results-sync {
+        margin-top: 8px;
+    }
+
+    #home-news-sync .news-item,
+    #home-results-sync .paper-card-mini {
+        padding: 10px 0;
+    }
+
+    #home-news-sync .news-title,
+    #home-results-sync .paper-card-mini h5 {
+        font-size: 12.5px;
+        line-height: 1.38;
+    }
+
+    #home-news-sync .news-desc {
+        font-size: 11.5px;
+        line-height: 1.45;
+    }
+}
+
+/* Mobile refinement round 6: compress subpage banners into lightweight headers. */
+@media (max-width: 768px) {
+    .sub-banner {
+        height: 76px;
+        margin-bottom: 14px;
+        background-position: center 42%;
+    }
+
+    .sub-banner-overlay {
+        background: rgba(8, 42, 90, 0.58);
+    }
+
+    .sub-banner h2 {
+        padding: 0 16px;
+        font-size: 17px;
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-banner {
+        height: 66px;
+        margin-bottom: 12px;
+    }
+
+    .sub-banner h2 {
+        font-size: 15px;
+    }
+}
+
+/* Final mobile pass: tighten team pages and normalize small-screen rhythm. */
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+        font-size: 18px;
+    }
+
+    .section-title-en {
+        margin-top: 2px;
+        font-size: 10px;
+    }
+
+    .section-divider {
+        margin: 24px 0;
+    }
+
+    .pi-profile {
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .pi-img {
+        width: min(138px, 42vw);
+        border-radius: var(--radius-sm);
+    }
+
+    .team-member {
+        padding: 6px 0 8px;
+    }
+
+    .team-member .avatar {
+        width: min(118px, 34vw);
+        height: min(158px, 46vw);
+        margin-bottom: 8px;
+        border-radius: var(--radius-sm);
+    }
+
+    .team-member h4 {
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+
+    .team-member p {
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .student-text-grid,
+    .alumni-simple-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 12px;
+    }
+
+    .student-text-item,
+    .alumni-simple-list li {
+        padding: 9px 0;
+    }
+
+    .s-name {
+        display: inline;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    .s-status {
+        display: inline;
+        font-size: 12px;
+        color: var(--text-tertiary);
+    }
+
+    .s-dir {
+        margin-top: 3px;
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .year-header {
+        margin: 22px 0 6px;
+    }
+
+    .year-header span {
+        font-size: 15px;
+    }
+
+    .member-detail-card {
+        padding-top: 10px;
+    }
+
+    .detail-photo {
+        max-width: 156px;
+    }
+
+    .member-name {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        font-size: 18px;
+    }
+
+    .member-title {
+        font-size: 12px;
+    }
+
+    .bio-text p,
+    .detail-box li {
+        font-size: 13px;
+        line-height: 1.62;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 17px;
+    }
+
+    .team-member .avatar {
+        width: min(104px, 32vw);
+        height: min(138px, 42vw);
+    }
+
+    .team-member h4 {
+        font-size: 13px;
+    }
+
+    .team-member p {
+        font-size: 11.5px;
+    }
+
+    .pi-img {
+        width: min(124px, 40vw);
+    }
+
+    .student-text-item,
+    .alumni-simple-list li {
+        padding: 8px 0;
+    }
+
+    .s-name {
+        font-size: 13.5px;
+    }
+
+    .s-dir {
+        font-size: 11.5px;
+    }
 }
